@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package TylerRoux;
 
 /**
@@ -19,15 +15,7 @@ public class Level {
 	private Scanner file = null;
 	public int brickCount = 0;
 	
-	public Level(String level, StandardHandler sh){
-		
-		//try{
-		//	this.file = new Scanner(new File(level));
-		//}catch(IOException e){
-		//	e.printStackTrace();
-		//}
-                
-		
+	public Level(String level, StandardHandler sh){	
 		int x = 0; 
 		int y = 0;
 		
@@ -72,7 +60,4 @@ public class Level {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         }
-   // public Level(String resourcesLevelslevel2txt) {
-   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   // }
-//}
+
