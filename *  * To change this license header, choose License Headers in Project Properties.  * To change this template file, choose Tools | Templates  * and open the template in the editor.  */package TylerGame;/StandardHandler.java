@@ -38,27 +38,13 @@ public class StandardHandler{
                     for(int i = 0; i > Level; i++){
                     
                     Level = new Level("Resources/Levels/level2.txt" ,this);
-                    //for(int i = 0; i > 1; i++){
-                    //System.out.println("Congrats You Win");
-                   //System.exit(0);
-                    }
+                   
                 JOptionPane.showMessageDialog(null, "Congrats, you won!");
-               // System.exit(0);
         }
                 if(this.countBricksAndDetermineWin()){
                     JOptionPane.showMessageDialog(null, "Congrats, you won!");
                         System.exit(0);
-                }
-                //System.exit(1);
-                        //this.file(level)++;
-                //}else{
-                    //this.File(Level2);
-                //else{
-                    //(this.countBricksAndDetermineWin());
-                  //  JOptionPane.showMessageDialog(null, "Congrats, you won!");
-			//System.exit(0);
-                        //return "You won";
-               // }
+               
 		for(int i = 0; i < entities.size(); i++){
 
 			//Grabs the player
