@@ -11,7 +11,6 @@ import java.awt.image.BufferStrategy;
  */
 public class Game extends Canvas implements Runnable{
 
-	//private static final long serialVersionUID = 5754222609488830452L;
 	private Thread thread;
 	private boolean running = false;
 	
@@ -24,11 +23,7 @@ public class Game extends Canvas implements Runnable{
 	
 	private Font font;
         
-        private final int MAX_LEVELS = 7;
-	public Level[] levels = new Level[MAX_LEVELS];
-	public int levelNum = 0;
-			 //0 <= n < MAX_LEVELS
-	
+     
 	public Game(int width, int height){
 		Game.window = new Window(width, height, "Bricks Be Gone", this);
 		
@@ -39,8 +34,6 @@ public class Game extends Canvas implements Runnable{
 		new Ball(380, 180, this.sh);
 		
 		new Level("Resources/Levels/level1.txt", this.sh);
-                
-               // new Level("Resources/Levels/level2.txt", this.sh);
 		
 		this.font = new Font("Arial", Font.TRUETYPE_FONT, 30);
 		
@@ -122,89 +115,4 @@ public class Game extends Canvas implements Runnable{
 		new Game(800, 800);
 	}
 }
-    /*    
-        public enum State {Menu,Game, GameOver};
-	public State gameState = State.Menu;
-	public int difficulty = 0;
-	public boolean firstPass = true;
-	public boolean lost = false;
-	public boolean won = false;
-
-        
-        if(lost || won){
-			if(firstPass){//allows for a temporary clock to let the screen fade to black.
-
-				if(alpha < 255){
-					alpha++;
-				}else{
-					firstPass = false;
-
-					if(won){
-						levelNum++;
-						this.bg.setImage("space"+levelNum);
-					}
-
-					if(lost){
-						GUI.lives--;
-						if(GUI.lives == 0){
-							this.levels[levelNum].clear();
-							this.reloadAllLevels();
-							this.bg.setImage("space0");
-							this.gameState = State.GameOver;
-
-						}
-					}
-					//songBox.clearSFX();
-					this.levels[levelNum].reload();
-					if(this.gameState != State.GameOver)
-						this.handler.addEntity(new Ball(300,300,this,this.difficulty));
-				}
-
-			}else{
-				if(alpha > 0){
-					alpha--;
-				}else{
-					lost = false;
-					started = false;
-					firstPass = true;
-					won = false;
-				}
-
-			}
-
-			g2.setColor(new Color(0,0,0,alpha));
-			g2.fillRect(0, 0, this.window.returnWidth(), this.window.returnHeight());
-		}
-
-		/************************DO NOT PLACE ANY MORE DRAWING INSTRUCTIONS WITHIN THIS SECTION OF THE RENDER METHOD**********************/
-/*
-		g.dispose();
-		g2.dispose();
-
-		bs.show();
-	}
-
-        
-        public StandardHandler handler;
-       // this.handler = new StandardHandler();
-        
-        private void initLevels(){
-		for(int i = 0; i<levels.length; i++){
-			//Exception is handled in the Level constructor.
-			levels[i] = new Level("Resources/Levels/level"+(i+1)+".txt", this.handler);
-		}
-	}
-
-        
-	/**
-	 * This method will reload every level in the game, in the case of a game over situation.
-	 */
-
-//	public void reloadAllLevels(){
-//		for(int i = 0; i<levels.length; i++){
-//			levels[i].reload();
-//		}
-//	}
-
-//}
-
+   
