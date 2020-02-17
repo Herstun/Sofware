@@ -11,7 +11,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Level {
-
+/*2/17 Creates the blocks for the level and print exceptions if level does not work.
+Jerid Mei
+Dymond Deans
+Tyler Roux
+Marquiss Killett */
 	private Scanner file = null;
 	public int brickCount = 0;
 	
