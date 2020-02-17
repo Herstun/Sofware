@@ -1,10 +1,6 @@
 
 package TylerRoux;
 
-/**
- *
- * @author Rouxk
- */
 import TylerGame.StandardHandler;
 import java.io.File;
 import java.io.IOException;
