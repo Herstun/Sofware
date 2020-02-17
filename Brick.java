@@ -14,10 +14,6 @@ import TylerGame.StandardGameObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-/**
- *
- * @author tjroux
- */
 public class Brick extends StandardGameObject{
 
 	private Color color;
@@ -40,10 +36,5 @@ public class Brick extends StandardGameObject{
 	public void tick(){
 		
 		
-	}
-	
-	public void render(Graphics2D g2){
-		g2.setColor(this.color);
-		g2.fillRect((int)x , (int) y, (int) width, (int) height);
 	}
 }
