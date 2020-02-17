@@ -10,7 +10,10 @@ import java.awt.image.BufferStrategy;
  * 
  */
 public class Game extends Canvas implements Runnable{
-//The class opens the window and create a score tracker, opens a new window and creates the object rendering the game.
+/* 2/17 The class opens the window and create a score tracker, opens a new window and creates the object rendering the game.
+Tyler Roux
+Dymond Deans
+Marquiss Killett */
 	private Thread thread;
 	private boolean running = false;
 	
