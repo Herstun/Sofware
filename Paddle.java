@@ -17,10 +17,6 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- *
- * @author tjroux
- */
 public class Paddle extends StandardGameObject implements KeyListener{
 
 	private StandardHandler sh;
@@ -60,15 +56,6 @@ public class Paddle extends StandardGameObject implements KeyListener{
 
 	}
 
-    /**
-     *
-     * @param g2
-     */
-    @Override
-	public void render(Graphics2D g2){
-		g2.setColor(Color.RED);
-		g2.fillRect((int)this.x, (int)this.y, (int)this.width, (int)this.height);
-	}
 
 
 	@Override
