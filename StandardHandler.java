@@ -5,28 +5,18 @@
  */
 package TylerGame;
 
-/**
- *
- * @author Rouxk
- */
 import TylerGame.StandardGameObject;
 import TylerRoux.Game;
 import TylerRoux.Level;
-//import java.io.File;
-//import TylerRoux.level;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author tjroux
- */
+
 public class StandardHandler{
 
 	private ArrayList<StandardGameObject> entities;
-    private StandardHandler sh;
-    //private Level Level;
+        private StandardHandler sh;
 
 	public StandardHandler(){
 		this.entities = new ArrayList<StandardGameObject>();
@@ -35,46 +25,10 @@ public class StandardHandler{
 	public void tick(){
 		
 		if(this.countBricksAndDetermineWin() == true){
-                    //for(int i = 0; i > Level; i++){
-                   // Level level = new Level("Resources/Levels/level2.txt", this.sh);
-                    //Level = new Level("Resources/Levels/level2.txt" ,this);
-                    //for(int i = 0; i > 1; i++){
-                    //System.out.println("Congrats You Win");
-                   //System.exit(0);
-                    //}
                 JOptionPane.showMessageDialog(null, "Congrats, you won!");
-               // System.exit(0);
-            //}
-               // if(this.countBricksAndDetermineWin() == false){
-                 //   JOptionPane.showMessageDialog(null, "Congrats, you won!");
-                //finishedLevel();
                   System.exit(0);
-                //}
-              //  return finishedLevel();
-                //else{
-                    //this.countBricksAndDetermineWin() == false;
-                   // boolean name = this.countBricksAndDetermineWin() == false;
-                    
-                    //new Level("Resources/Levels/level2.txt", this.sh);
-                   // JOptionPane.showMessageDialog(null, "Congrats, you won!");
-                    //System.out.println("WINNER");
-                    // System.exit(0);
-                    //finishedLevel();
         }
-                //System.exit(0);
-              
-              //  new Level("Resources/Levels/level1.txt", this.sh);
-      //  }
-                //System.exit(1);
-                        //this.file(level)++;
-                //}else{
-                    //this.File(Level2);
-                //else{
-                    //(this.countBricksAndDetermineWin());
-                  //  JOptionPane.showMessageDialog(null, "Congrats, you won!");
-			//System.exit(0);
-                        //return "You won";
-               // }
+ 
 		for(int i = 0; i < entities.size(); i++){
 
 			//Grabs the player
@@ -88,11 +42,8 @@ public class StandardHandler{
 						if(entities.get(i).getBounds().intersects(entities.get(j).getBounds())){
 							entities.get(j).velY = -entities.get(j).velY;
 						}
-
 					}
-
 				}
-
 			}
 
 			//Grabs the ball
@@ -118,10 +69,7 @@ public class StandardHandler{
 			}
 
 			this.entities.get(i).tick();
-
 		}
-  
-           
 	}
 
 	public void render(Graphics2D g2){
@@ -148,21 +96,12 @@ public class StandardHandler{
 	}
 	
 	public boolean countBricksAndDetermineWin(){
-		
 		int brick = 0;
-		
 		for(int i = 0; i < entities.size(); i++){
 			if(entities.get(i).id == StandardID.Brick){
 				brick++;
 			}
 		}
-		
 		return brick == 0;
 	}
-
-    private boolean finishedLevel() {  
-      //  System.exit(0);
-            return this.countBricksAndDetermineWin() == false;
-    }
 }
-
