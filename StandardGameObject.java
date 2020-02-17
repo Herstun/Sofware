@@ -14,22 +14,21 @@ import java.awt.Rectangle;
 
 public abstract class StandardGameObject {
 
-	public double x;
-	public double y;
+	protected double x;
+	protected double y;
 	
-	public double velX;
-	public double velY;
+	protected double velX;
+	protected double velY;
 	
 	
-	public int width;
-	public int height;
+	protected int width;
+	protected int height;
 	
-	public StandardID id;
+	protected StandardID id;
 	
-	public StandardGameObject(double x, double y, StandardID id){
+	public StandardGameObject(double _x, double _y, StandardID id){
 		this.x = x;
 		this.y = y;
-		
 		this.id = id;
 	}
 	
@@ -38,6 +37,6 @@ public abstract class StandardGameObject {
 	public abstract void render(Graphics2D g2);
 	
 	public Rectangle getBounds(){
-		return new Rectangle((int) x,(int)  y,(int)  width, (int) height);
+		return new Rectangle((int) _x,(int) _y,(int) width, (int) height);
 	}
 }
