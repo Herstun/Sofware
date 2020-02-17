@@ -15,16 +15,14 @@ public class Window extends Canvas{
 		this.frame.setDefaultCloseOperation(3);
 		this.frame.setResizable(false);
 		this.frame.setLocationRelativeTo(null);
-		
 		this.frame.add(game);
-		
 		this.frame.setVisible(true);
 	}
 	
 	public int width(){
 		return this.frame.getWidth();
 	}
-	
+
 	public int height(){
 		return this.frame.getHeight();
 	}
