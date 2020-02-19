@@ -50,8 +50,7 @@ private synchronized void stop(){
 }
 
 public void run(){
-	this.requestFocus();
-		
+	this.requestFocus();	
 	while(running){
 		try {
 			TimeUnit.MILLISECONDS.sleep(20);
