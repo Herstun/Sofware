@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
- *This class is creating the bricks and making the bricks different color optionjjjhs.
+ *This class is creating the bricks and making the bricks different color optionjjjhs.fe
  * 
  */
 public class Brick extends StandardGameObject{
