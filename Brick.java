@@ -1,14 +1,15 @@
 package TylerRoux;
 
-/**
- *
- * @author Rouxk
- */
 import TylerGame.StandardID;
 import TylerGame.StandardGameObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+
+/**
+ *This class is creating the bricks and making the bricks different color options.
+ * 
+ */
 public class Brick extends StandardGameObject{
 
 private Color color;
@@ -27,7 +28,7 @@ public Brick(double _x, double _y, int val){
 		case 4: this.color = Color.ORANGE;break;//yellow
 		}
 	}
-	
-	public void tick(){	
-	}
+//This method is for the keeping all the methods together and moving in the same manner. 	
+public void tick(){	
+}
 }
