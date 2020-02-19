@@ -1,10 +1,11 @@
-
 package TylerRoux;
+
 import java.awt.Canvas;
 import javax.swing.JFrame;
-public class Window extends Canvas{
-	private JFrame frame;
 
+public class Window extends Canvas{
+        private JFrame frame;
+        
 	public Window(int width, int height, String title, Game game){
 		this.frame = new JFrame(title);
 		this.frame.setSize(width, height);
