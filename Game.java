@@ -43,8 +43,7 @@ private synchronized void stop(){
 		this.thread.join();
 	}catch(Exception e){
 		e.printStackTrace();
-	}
-		
+	}	
 	this.running = false;
 	System.exit(0);
 }
