@@ -5,7 +5,6 @@ import TylerGame.StandardGameObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
 /**
  *This class is creating the bricks and making the bricks different color options.
  * 
@@ -15,11 +14,9 @@ public class Brick extends StandardGameObject{
 private Color color;
 	
 public Brick(double _x, double _y, int val){
-	super(x, y, StandardID.Brick);
-		
+	super(x, y, StandardID.Brick);	
 	this.width = 80;
-	this.height = 20;
-		
+	this.height = 20;	
 	switch(val){
 	    case 0: return;
 		case 1: this.color = Color.RED; break; //red
@@ -28,6 +25,7 @@ public Brick(double _x, double _y, int val){
 		case 4: this.color = Color.ORANGE;break;//yellow
 		}
 	}
+	
 //This method is for the keeping all the methods together and moving in the same manner. 	
 public void tick(){	
 }
