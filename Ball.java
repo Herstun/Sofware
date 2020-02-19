@@ -22,17 +22,14 @@ public Ball(double _x, double _y, StandardHandler sh){
 public void tick() {
 	if(this.x < 0 || this.x >= Game.window.width() - this.width){
 		this.velX = -this.velX;
-	}
-		
+	}	
 	if(this.y < 0){
 		this.velY = -this.velY;
 	}
-		
-	if(this.y >= Game.window.height()){	
+   if(this.y >= Game.window.height()){	
 		JOptionPane.showMessageDialog(null, "You lost! Your score was: "+Game.score);
 		System.exit(0);
 		}
-		
 	this.x += this.velX;
 	this.y += this.velY;	
 	}
