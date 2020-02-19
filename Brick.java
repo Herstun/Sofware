@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TylerRoux;
 
 /**
@@ -16,16 +11,16 @@ import java.awt.Graphics2D;
 
 public class Brick extends StandardGameObject{
 
-	private Color color;
+private Color color;
 	
-	public Brick(double x, double y, int val){
-		super(x, y, StandardID.Brick);
+public Brick(double _x, double _y, int val){
+	super(x, y, StandardID.Brick);
 		
-		this.width = 80;
-		this.height = 20;
+	this.width = 80;
+	this.height = 20;
 		
-		switch(val){
-		case 0: return;
+	switch(val){
+	    case 0: return;
 		case 1: this.color = Color.RED; break; //red
 		case 2: this.color = Color.BLUE; break; //blue
 		case 3: this.color = Color.GREEN;break;//green
@@ -33,8 +28,6 @@ public class Brick extends StandardGameObject{
 		}
 	}
 	
-	public void tick(){
-		
-		
+	public void tick(){	
 	}
 }
