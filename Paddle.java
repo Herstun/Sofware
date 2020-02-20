@@ -13,16 +13,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Paddle extends StandardGameObject implements KeyListener{
-private StandardHandler sh;
-public Paddle(double x, double y,StandardHandler handler) {
-	super(x, y, StandardID.Player);
-	this.sh = handler;
+    private StandardHandler sh;
+    public Paddle(double _x, double _y, StandardHandler _handler) {
+	super(_x, _y, StandardID.Player);
+	this.sh = _handler;
 	this.sh.addEntity(this);
 	this.width = 100;
 	this.height = 20;
-}
+    }
 
-public void tick(){
+    public void tick(){
 	if(this.x < 0){
 		this.x = 0;
 	}
@@ -36,26 +36,26 @@ public void tick(){
 		this.y = Game.window.height() - this.height;
 	}
 	this.x += velX;
-}
+    }
 
-@Override
-public void keyPressed(KeyEvent e) {
+    @Override
+    public void keyPressed(KeyEvent e) {
 	switch(e.getKeyCode()){
 	case KeyEvent.VK_LEFT: this.velX = -10; break;
 	case KeyEvent.VK_RIGHT: this.velX = 10; break;
 	}
-}
+    }
 
-@Override
-public void keyReleased(KeyEvent e) {
+    @Override
+    public void keyReleased(KeyEvent e) {
 	switch(e.getKeyCode()){
 	case KeyEvent.VK_LEFT: this.velX = 0; break;
 	case KeyEvent.VK_RIGHT: this.velX = 0; break;
 	}
-}
+    }
 
-@Override
-public void keyTyped(KeyEvent e) {
+    @Override
+    public void keyTyped(KeyEvent e) {
 	// TODO Auto-generated method stub
-}
+    }
 }
