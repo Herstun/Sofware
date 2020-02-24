@@ -1,35 +1,38 @@
-package TylerRoux;
+package BrickBreaker;
 
-import TylerGame.StandardID;
-import TylerGame.StandardGameObject;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
- *This class is creating the bricks and making the bricks different color optionjjjhs.fe
- *
+ *This creates the bricks height and width as well as the color of the brick.
+ * @author tjroux
  */
-public abstract class Brick extends StandardGameObject{
+public class Brick extends StandardGameObject{
+protected Color color;
 
-    private Color color;
-    protected static int BrickWidth = 80;
-    protected static int BrickHeight = 20;
 
-    public Brick(double _x, double _y, int _val){
-	super(_x, _y, StandardID.Brick);
-	this.width = BrickWidth;
-	this.height = BrickHeight;
-	switch(_val){
-	    case 0: return;
-		case 1: this.color = Color.RED; break; //red
-		case 2: this.color = Color.BLUE; break; //blue
-		case 3: this.color = Color.GREEN;break;//green
-		case 4: this.color = Color.ORANGE;break;//yellow
-	}
+public Brick(double _x, double _y, int _val){
+    super(_x, _y, StandardID.Brick);
+    this.width = 80;
+    this.height = 20;
+    switch(_val){
+        case 0: return;
+	case 1: this.color = Color.RED; break; //red
+	case 2: this.color = Color.BLUE; break; //blue
+	case 3: this.color = Color.GREEN;break;//green
+	case 4: this.color = Color.ORANGE;break;//yellow
     }
+}
 
-//This method is for the keeping all the methods together and moving in the same manner.
-    @Override
-    public void tick(){
-    }
+//This method keeps the game running with all the components together.
+@Override
+public void tick(){
+}
+
+//
+@Override
+public void render(Graphics2D g2){
+    g2.setColor(this.color);
+    g2.fillRect((int) _x , (int) _y, (int) width, (int) height);
+}
 }
