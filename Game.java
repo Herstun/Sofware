@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable {
 
         new Ball(380, 180, this.sh);
 
-        new Level("Resources/Levels/Level1.txt", this.sh);
+        new Level("src/Resources/Levels/Level1.txt", this.sh);
         //new Level("Resources/Levels/level2.txt", this.sh);
        // new Level();
 
