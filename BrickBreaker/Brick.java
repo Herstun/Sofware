@@ -9,7 +9,8 @@ import java.awt.Graphics2D;
  * @author Tyler Roux, Last updated 2/23/2020
  */
 public class Brick extends StandardGameObject {
-
+    protected int brickWidth = 80;
+    protected int brickHeight = 20;
     protected Color color;
 
     /**
@@ -22,8 +23,8 @@ public class Brick extends StandardGameObject {
      */
     public Brick(double _x, double _y, int _val) {
         super(_x, _y, StandardID.Brick);
-        this.width = 80;
-        this.height = 20;
+        this.width = brickWidth;
+        this.height = brickHeight;
 
         switch (_val) {
             case 0:
