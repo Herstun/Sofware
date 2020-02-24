@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author tjroux
+ * @author Marquis, Last updated 2/15/2020
  */
 public class Game extends Canvas implements Runnable {
 
@@ -78,7 +78,7 @@ public class Game extends Canvas implements Runnable {
 
         while (running) {
             try {
-                TimeUnit.MILLISECONDS.sleep(20);
+                TimeUnit.MILLISECONDS.sleep(15);
                 //Thread.sleep(17);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block

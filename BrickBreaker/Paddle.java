@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
  * This is creating a paddle and giving the properties to no go out of the
  * window of the game.
  *
- * @author Tyler Roux
+ * @author Dymond Deans, Last updated 2/21/2020
  */
 public class Paddle extends StandardGameObject implements KeyListener {
 
@@ -23,6 +23,9 @@ public class Paddle extends StandardGameObject implements KeyListener {
         this.height = 20;
     }
 
+    /**
+     * This method controls the game and the objects all at the same motion.
+     */
     @Override
     public void tick() {
         if (this._x < 0) {
@@ -45,7 +48,7 @@ public class Paddle extends StandardGameObject implements KeyListener {
     }
 
     /**
-     *
+     *Draws the paddle and makes it the color you would like.
      * @param paddle
      */
     @Override
@@ -54,6 +57,10 @@ public class Paddle extends StandardGameObject implements KeyListener {
         paddle.fillRect((int) this._x, (int) this._y, (int) this.width, (int) this.height);
     }
 
+    /**
+     * This is controlling the motion of the paddle while pressing the key.
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
@@ -66,6 +73,10 @@ public class Paddle extends StandardGameObject implements KeyListener {
         }
     }
 
+    /**
+     * This is controlling the motion of the paddle while not pressing the key allowing it to not move.
+     * @param e
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {

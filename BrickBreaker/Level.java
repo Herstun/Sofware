@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * This method creates the level and reads throughout the text file and places
+ * the bricks onto the canvas.
  *
- * @author Rouxk
+ * @author Jerid Mei, Last updated: 2/22/2020
  */
 public class Level {
 
@@ -25,10 +27,13 @@ public class Level {
             e.printStackTrace();
         }
 
+        /**
+         * This places the position of the bricks onto the canvas from left to
+         * right.
+         */
         int x = 0;
         int y = 40;
 
-        //if()
         while (this.file.hasNext()) {
             String line = this.file.nextLine();
 
@@ -43,7 +48,6 @@ public class Level {
             }
             x = 0;
             y += 55;
-
         }
 
         if (file == null) {
@@ -53,6 +57,10 @@ public class Level {
         }
     }
 
+    /**
+     * This method is creating a motion along with all the other objects and
+     * having the game in sync.
+     */
     public void tick() {
     }
 }

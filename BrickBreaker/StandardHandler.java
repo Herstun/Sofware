@@ -5,29 +5,29 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
+ * This method if for the
  *
- * @author tjroux
+ * @author Jerid Mei, Last updated: 2/20/2020
  */
 public class StandardHandler {
 
     private ArrayList<StandardGameObject> entities;
 
+    /**
+     *
+     */
     public StandardHandler() {
         this.entities = new ArrayList<StandardGameObject>();
     }
 
+    /**
+     * Opens new window with Text
+     */
     public void tick() {
-
         if (this.countBricksAndDetermineWin()) {
-            //new Level("Resources/Levels/Level2.txt", this.sh);
             JOptionPane.showMessageDialog(null, "Congrats, you won!");
             System.exit(0);
         }
-        /* if (brick == 0){
-                    Level level;
-                    level = new Level("Resources/Levels/level2.txt", this.sh);
-                    determine();
-                }*/
 
         for (int i = 0; i < entities.size(); i++) {
 
@@ -66,22 +66,31 @@ public class StandardHandler {
                     }
                 }
             }
-
             this.entities.get(i).tick();
-
         }
     }
-
+/**
+ *
+ * @param g2
+ */
     public void render(Graphics2D g2) {
         for (int i = 0; i < entities.size(); i++) {
             entities.get(i).render(g2);
         }
     }
 
+    /**
+     *
+     * @param obj
+     *
     public void addEntity(StandardGameObject obj) {
         this.entities.add(obj);
     }
 
+    /**
+     *
+     * @param obj
+     */
     public void removeEntity(StandardGameObject obj) {
         for (int i = 0; i < entities.size(); i++) {
             if (obj == entities.get(i)) {
@@ -91,11 +100,18 @@ public class StandardHandler {
         }
     }
 
+    /**
+     *
+     * @param obj
+     */
     public void remove(StandardGameObject obj) {
         this.entities.remove(obj);
     }
 
-    //      int brick;
+    /**
+     *
+     * @return
+     */
     public boolean countBricksAndDetermineWin() {
 
         int brick = 0;
@@ -103,21 +119,8 @@ public class StandardHandler {
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i).id == StandardID.Brick) {
                 brick++;
-                // new Level("Resources/Levels/level2.txt", this.sh);
             }
-            //   new Level("Resources/Levels/level2.txt", this.sh);
         }
-        // new Level("Resources/Levels/level2.txt", this.sh);
         return brick == 0;
-
     }
 }
-
-// private void Level() {
-//         Level level = new Level("Resources/Levels/level2.txt", this.sh);
-// }
-//  protected boolean determine() {
-//    return countBricksAndDetermineWin() == true;
-//}
-//}
-
