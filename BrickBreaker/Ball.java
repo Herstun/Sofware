@@ -11,6 +11,13 @@ import javax.swing.JOptionPane;
  */
 public class Ball extends StandardGameObject {
 
+    /**
+     * This method declares the balls parameters.
+     *
+     * @param _x
+     * @param _y
+     * @param sh
+     */
     public Ball(double _x, double _y, StandardHandler sh) {
         super(_x, _y, StandardID.Ball);
         sh.addEntity(this);

@@ -29,23 +29,26 @@ public class Brick extends StandardGameObject {
             case 0:
                 return;
             case 1:
+                //red brick
                 this.color = Color.RED;
-                break; //red
+                break;
             case 2:
+                //blue brick
                 this.color = Color.BLUE;
-                break; //blue
+                break;
             case 3:
+                //green brick
                 this.color = Color.GREEN;
-                break;//green
+                break;
             case 4:
+                //yellow brick
                 this.color = Color.ORANGE;
-                break;//yellow
+                break;
         }
     }
 
     /**
      * This method keeps the game running with all the components together.
- *
      */
     @Override
     public void tick() {
