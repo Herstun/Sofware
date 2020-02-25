@@ -14,13 +14,14 @@ import java.awt.event.KeyListener;
 public class Paddle extends StandardGameObject implements KeyListener {
 
     protected StandardHandler sh;
-
+    private final int paddleWidth = 150;
+    private final int paddleHeight = 20;
     public Paddle(double _x, double _y, StandardHandler handler) {
         super(_x, _y, StandardID.Player);
         this.sh = handler;
         this.sh.addEntity(this);
-        this.width = 150;
-        this.height = 20;
+        this.width = paddleWidth;
+        this.height = paddleHeight;
     }
 
     @Override
