@@ -9,14 +9,17 @@ import javax.swing.JOptionPane;
  * @author tjroux
  */
 public class Ball extends StandardGameObject {
-
+    private final int ballWidth = 15;
+    private final int ballHeight = 15;
+    private final int ballVelocityX = 5;
+    private final int ballVelocityY = -5;
     public Ball(double _x, double _y, StandardHandler sh) {
         super(_x, _y, StandardID.Ball);
         sh.addEntity(this);
-        this.width = 15;
-        this.height = 15;
-        this.velX = 5;
-        this.velY = -5;
+        this.width = ballWidth;
+        this.height = ballHeight;
+        this.velX = ballVelocityX;
+        this.velY = ballVelocityY;
     }
 
     @Override
