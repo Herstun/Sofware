@@ -82,7 +82,7 @@ public class StandardHandler {
     /**
      *
      * @param obj
-     *
+     */
     public void addEntity(StandardGameObject obj) {
         this.entities.add(obj);
     }
