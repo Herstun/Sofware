@@ -9,7 +9,11 @@ import java.util.Scanner;
  * @author Rouxk
  */
 public class Level {
-
+    private final int blockPlacementX = 0;
+    private final int blockPlacementY = 40;
+    private final int blockPlacementNextX = 80;
+    private final int blockPlacementNextRowX = 0;
+    private final int blockPlacementNextRowY = 0;
     protected Scanner file = null;
     protected int brickCount = 0;
     protected StandardHandler sh;
@@ -25,8 +29,8 @@ public class Level {
             e.printStackTrace();
         }
 
-        int x = 0;
-        int y = 40;
+        int x = blockPlacementX;
+        int y = blockPlacementY;
 
         //if()
         while (this.file.hasNext()) {
@@ -34,15 +38,15 @@ public class Level {
 
             for (int i = 0; i < line.length() - 1; i++) {
 
-                x += 80;
+                x += blockPlacementNextX;
 
                 if (Integer.parseInt(line.substring(i, i + 1)) != 0) {
                     sh.addEntity(new Brick(x, y, Integer.parseInt(line.substring(i, i + 1))));
                     this.brickCount++;
                 }
             }
-            x = 0;
-            y += 55;
+            x = blockPlacementNextRowX;
+            y += blockPlacementNextRowY;
 
         }
 
