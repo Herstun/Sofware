@@ -33,7 +33,7 @@ public class Ball extends StandardGameObject {
     }
 
     /**
-     * This method is the motion of the ball along with the other in objects in
+     * This method is the motion of the ball along with the other in objects.
      * the game and putting them into motion all as one.
      */
     @Override
