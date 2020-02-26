@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
  * @author Tyler Roux, Last updated 2/23/2020
  */
 public class Brick extends StandardGameObject {
+
     protected int brickWidth = 80;
     protected int brickHeight = 20;
     protected Color color;
