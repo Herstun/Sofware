@@ -30,7 +30,7 @@ public class StandardHandler {
             JOptionPane.showMessageDialog(null, "Congrats, you won!");
             System.exit(0);
         }
-        
+
         for (int i = 0; i < entities.size(); i++) {
             //Grabs the player
             if (this.entities.get(i).id == StandardID.Player) {
@@ -110,7 +110,6 @@ public class StandardHandler {
      *
      * @return
      */
-    
     public boolean countBricksAndDetermineWin() {
         int brick = 0;
         for (int i = 0; i < entities.size(); i++) {

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 /**
  * This creates a canvas for the game to run on.
+ *
  * @author Marquis, Last updated: 2/10/2020
  */
 public class Window extends Canvas {
