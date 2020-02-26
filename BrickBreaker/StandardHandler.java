@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- * This method if for the
+ * This method if for the handling the game and acts as a game engine.
  *
  * @author Jerid Mei, Last updated: 2/20/2020
  */
@@ -14,14 +14,16 @@ public class StandardHandler {
     private ArrayList<StandardGameObject> entities;
 
     /**
-     *
+     * This method is declaring the objects with the ArrayList as entities.
      */
     public StandardHandler() {
         this.entities = new ArrayList<StandardGameObject>();
     }
 
     /**
-     * Opens new window with Text
+     * This method is using the tick method to make sure all objects are acting
+     * as one and using an if statement that displays a congratulations to the
+     * player if they clear all the bricks.
      */
     public void tick() {
         if (this.countBricksAndDetermineWin()) {
@@ -69,10 +71,12 @@ public class StandardHandler {
             this.entities.get(i).tick();
         }
     }
-/**
- *
- * @param g2
- */
+
+    /**
+     * This method renders the canvas.
+     *
+     * @param g2
+     */
     public void render(Graphics2D g2) {
         for (int i = 0; i < entities.size(); i++) {
             entities.get(i).render(g2);
@@ -80,14 +84,16 @@ public class StandardHandler {
     }
 
     /**
+     * This method allows for additional objects to be added.
      *
      * @param obj
-     *
+     */
     public void addEntity(StandardGameObject obj) {
         this.entities.add(obj);
     }
 
     /**
+     * This method removes objects that have the incorrect array.
      *
      * @param obj
      */
@@ -101,6 +107,7 @@ public class StandardHandler {
     }
 
     /**
+     * This method removes objects.
      *
      * @param obj
      */
@@ -109,6 +116,8 @@ public class StandardHandler {
     }
 
     /**
+     * This method counts the number of bricks and if there are zero bricks left
+     * then the determination of winning occurs.
      *
      * @return
      */

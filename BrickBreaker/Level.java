@@ -21,7 +21,6 @@ public class Level {
         this.levelUp = level;
 
         try {
-            System.out.println(levelUp);
             this.file = new Scanner(new File(this.levelUp));
         } catch (IOException e) {
             e.printStackTrace();

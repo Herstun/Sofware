@@ -15,9 +15,17 @@ public class Paddle extends StandardGameObject implements KeyListener {
 
     protected StandardHandler sh;
 
-    public Paddle(double _x, double _y, StandardHandler handler) {
+    /**
+     * This method creates the parameters of the paddle.
+     *
+     * @param _x
+     * @param _y
+     * @param handler
+     */
+    public Paddle(double _x, double _y, StandardHandler _handler) {
+
         super(_x, _y, StandardID.Player);
-        this.sh = handler;
+        this.sh = _handler;
         this.sh.addEntity(this);
         this.width = 150;
         this.height = 20;
@@ -48,7 +56,8 @@ public class Paddle extends StandardGameObject implements KeyListener {
     }
 
     /**
-     *Draws the paddle and makes it the color you would like.
+     * Draws the paddle and makes it the color you would like.
+     *
      * @param paddle
      */
     @Override
@@ -59,6 +68,7 @@ public class Paddle extends StandardGameObject implements KeyListener {
 
     /**
      * This is controlling the motion of the paddle while pressing the key.
+     *
      * @param e
      */
     @Override
@@ -74,7 +84,9 @@ public class Paddle extends StandardGameObject implements KeyListener {
     }
 
     /**
-     * This is controlling the motion of the paddle while not pressing the key allowing it to not move.
+     * This is controlling the motion of the paddle while not pressing the key
+     * allowing it to not move.
+     *
      * @param e
      */
     @Override
@@ -89,6 +101,12 @@ public class Paddle extends StandardGameObject implements KeyListener {
         }
     }
 
+    /**
+     * This method is used for the if a key is typed it will not cause any
+     * actions.
+     *
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e) {
     }
