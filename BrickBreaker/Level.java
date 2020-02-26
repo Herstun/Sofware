@@ -8,7 +8,7 @@ import java.util.Scanner;
  * This method creates the level and reads throughout the text file and places
  * the bricks onto the canvas.
  *
- * @author Jerid Mei, Last updated: 2/22/2020
+ * @author Jerid, Last updated: 2/22/2020
  */
 public class Level {
 
