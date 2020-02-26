@@ -38,16 +38,20 @@ public class Ball extends StandardGameObject {
      */
     @Override
     public void tick() {
+        //This acts as a bounce back when it reaches the window bounds.
         if (this._x < 0 || this._x >= Game.window.width() - this.width) {
             this.velX = -this.velX;
         }
+        //If it hits the top of the window it will go back into the canvas and continue.
         if (this._y < 0) {
             this.velY = -this.velY;
         }
+        //If it goes past the paddle then it display a losing message.
         if (this._y >= Game.window.height()) {
             JOptionPane.showMessageDialog(null, "You lost! Your score was: " + Game.score);
             System.exit(0);
         }
+        //This is the movement of the ball
         this._x += this.velX;
         this._y += this.velY;
     }

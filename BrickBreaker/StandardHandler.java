@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 /**
  * This method if for the handling the game and acts as a game engine.
  *
- * @author Jerid Mei, Last updated: 2/20/2020
+ * @author Jerid, Tyler, Marquis; Last updated: 2/20/2020
  */
 public class StandardHandler {
 
@@ -30,16 +30,12 @@ public class StandardHandler {
             JOptionPane.showMessageDialog(null, "Congrats, you won!");
             System.exit(0);
         }
-
+        
         for (int i = 0; i < entities.size(); i++) {
-
             //Grabs the player
             if (this.entities.get(i).id == StandardID.Player) {
-
                 for (int j = 0; j < entities.size(); j++) {
-
                     if (entities.get(j).id == StandardID.Ball) {
-
                         //Collision between player & ball
                         if (entities.get(i).getBounds().intersects(entities.get(j).getBounds())) {
                             entities.get(j).velY = -entities.get(j).velY;
@@ -50,20 +46,13 @@ public class StandardHandler {
 
             //Grabs the ball
             if (entities.get(i).id == StandardID.Ball) {
-
                 for (int j = 0; j < entities.size(); j++) {
-
                     if (entities.get(j).id == StandardID.Brick) {
-
                         if (entities.get(i).getBounds().intersects(entities.get(j).getBounds())) {
-
                             Game.score += 100;
-
                             entities.remove(j);
                             j--;
-
                             entities.get(i).velY = -entities.get(i).velY;
-
                         }
                     }
                 }
@@ -121,10 +110,9 @@ public class StandardHandler {
      *
      * @return
      */
+    
     public boolean countBricksAndDetermineWin() {
-
         int brick = 0;
-
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i).id == StandardID.Brick) {
                 brick++;

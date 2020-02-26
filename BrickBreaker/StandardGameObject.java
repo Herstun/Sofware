@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 /**
  * This method is for the objects of the game and to declare the variables.
  *
- * @author Dymond, Last updated: 2/15/2020
+ * @author Dymond, Tyler,Jerid, and Marquis;  Last updated: 2/15/2020
  */
 public abstract class StandardGameObject {
 

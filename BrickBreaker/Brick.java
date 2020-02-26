@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 /**
  * This creates the bricks height and width as well as the color of the brick.
  *
- * @author Tyler Roux, Last updated 2/23/2020
+ * @author Tyler, Last updated 2/23/2020
  */
 public class Brick extends StandardGameObject {
 
