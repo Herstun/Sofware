@@ -16,6 +16,11 @@ public class Level {
     protected int brickCount = 0;
     protected StandardHandler sh;
     protected String levelUp;
+    private final int blockPlacementX = 0;
+    private final int blockPlacementY = 40;
+    private final int blockPlacementNextX = 80;
+    private final int blockPlacementNextRowX = 0;
+    private final int blockPlacementNextRowY = 55;
 
     public Level(String level, StandardHandler sh) {
         this.levelUp = level;
@@ -30,23 +35,23 @@ public class Level {
          * This places the position of the bricks onto the canvas from left to
          * right.
          */
-        int x = 0;
-        int y = 40;
+        int x = blockPlacementX;
+        int y = blockPlacementY;
 
         while (this.file.hasNext()) {
             String line = this.file.nextLine();
 
             for (int i = 0; i < line.length() - 1; i++) {
 
-                x += 80;
+                x += blockPlacementNextX;
 
                 if (Integer.parseInt(line.substring(i, i + 1)) != 0) {
                     sh.addEntity(new Brick(x, y, Integer.parseInt(line.substring(i, i + 1))));
                     this.brickCount++;
                 }
             }
-            x = 0;
-            y += 55;
+            x = blockPlacementNextRowX;
+            y += blockPlacementNextRowY;
         }
 
         if (file == null) {

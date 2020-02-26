@@ -20,19 +20,27 @@ public class Game extends Canvas implements Runnable {
     protected Paddle paddle;
     public static int score = 0;
     protected Font font;
+    private final int paddlePlacementWidth = 300;
+    private final int paddlePlacementHeight = 700;
+    private final int ballPlacementWidth = 380;
+    private final int ballPlacementHeight = 180;
+    private final String fontType = "Arial";
+    private final int fontSize = 30;
+    private static int gameSizeWidth = 800;
+    private static int gameSizeHeight = 800;
 
     public Game(int width, int height) {
         Game.window = new Window(width, height, "Bricks Be Gone", this);
 
         this.sh = new StandardHandler();
 
-        this.paddle = new Paddle(300, 700, this.sh);
+        this.paddle = new Paddle(paddlePlacementWidth, paddlePlacementHeight, this.sh);
 
-        new Ball(380, 180, this.sh);
+        new Ball(ballPlacementWidth, ballPlacementHeight, this.sh);
 
         new Level("src/Resources/Levels/Level1.txt", this.sh);
 
-        this.font = new Font("Arial", Font.TRUETYPE_FONT, 30);
+        this.font = new Font(fontType, Font.TRUETYPE_FONT, fontSize);
 
         this.addKeyListener(paddle);
 
@@ -107,6 +115,6 @@ public class Game extends Canvas implements Runnable {
     }
 
     public static void main(String[] args) {
-        new Game(800, 800);
+        new Game(gameSizeWidth, gameSizeHeight);
     }
 }

@@ -7,13 +7,14 @@ import javax.swing.JOptionPane;
 /**
  * This method creates the ball and makes its properties.
  *
- * @author Tyler Roux, Last updated: 2/24/2020
+ * @author Tyler, Last updated: 2/24/2020
  */
 public class Ball extends StandardGameObject {
-    protected int ballWidth = 15;
-    protected int ballHeight = 15;
-    protected int ballVelocityX = 5;
-    protected int ballVelocityY = -5;
+
+    private final int ballWidth = 15;
+    private final int ballHeight = 15;
+    private final int ballVelocityX = 5;
+    private final int ballVelocityY = -5;
 
     /**
      * This method declares the balls parameters.
