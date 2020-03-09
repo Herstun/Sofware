@@ -14,8 +14,8 @@ import java.awt.event.KeyListener;
 public class Paddle extends StandardGameObject implements KeyListener {
 
     protected StandardHandler sh;
-    private final int paddleWidth = 150;
-    private final int paddleHeight = 20;
+    private int paddleWidth = 150;
+    private int paddleHeight = 20;
 
     /**
      * This method creates the parameters of the paddle.
