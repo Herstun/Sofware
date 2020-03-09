@@ -17,14 +17,10 @@ public abstract class StandardGameObject {
     public StandardGameObject(double _x, double _y, StandardID _id) {
         this._x = _x;
         this._y = _y;
-
         this.id = _id;
     }
-
     public abstract void tick();
-
     public abstract void render(Graphics2D g2);
-
     public Rectangle getBounds() {
         return new Rectangle((int) _x, (int) _y, (int) width, (int) height);
     }
