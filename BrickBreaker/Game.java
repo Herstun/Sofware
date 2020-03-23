@@ -1,5 +1,10 @@
 package BrickBreaker;
 
+/**
+ *
+ * @author Marquis, Last updated 2/15/2020
+ */
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
@@ -7,10 +12,6 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.concurrent.TimeUnit;
 
-/**
- *
- * @author tjroux
- */
 public class Game extends Canvas implements Runnable {
 
     protected Thread thread;
@@ -22,19 +23,15 @@ public class Game extends Canvas implements Runnable {
     protected Font font;
     private final int paddlePlacementWidth = 300;
     private final int paddlePlacementHeight = 700;
-    private final int ballPlacementWidth = 380;
-    private final int ballPlacementHeight = 180;
+    private final int ballPlacementWidth = 200;
+    private final int ballPlacementHeight = 400;
     private final String fontType = "Arial";
     private final int fontSize = 30;
-    private final int gameSizeWidth = 800;
-    private final int gameSizeHeight = 800;
-//protected final int MAX_LEVELS = 7;
-//public Level[] levels = new Level[MAX_LEVELS];
-//public int levelNum = 0;
-    //0 <= n < MAX_LEVELS
+    private static int gameSizeWidth = 800;
+    private static int gameSizeHeight = 800;
 
-    public Game(int _width, int _height) {
-        Game.window = new Window(_width, _height, "Bricks Be Gone", this);
+    public Game(int width, int height) {
+        Game.window = new Window(width, height, "Bricks Be Gone", this);
 
         this.sh = new StandardHandler();
 
@@ -43,16 +40,12 @@ public class Game extends Canvas implements Runnable {
         new Ball(ballPlacementWidth, ballPlacementHeight, this.sh);
 
         new Level("src/Resources/Levels/Level1.txt", this.sh);
-        //new Level("Resources/Levels/level2.txt", this.sh);
-       // new Level();
 
         this.font = new Font(fontType, Font.TRUETYPE_FONT, fontSize);
 
         this.addKeyListener(paddle);
 
         this.start();
-
-        //this.level();
     }
 
     private synchronized void start() {
@@ -86,11 +79,8 @@ public class Game extends Canvas implements Runnable {
 
         while (running) {
             try {
-                TimeUnit.MILLISECONDS.sleep(20);
-                //Thread.sleep(17);
+                TimeUnit.MILLISECONDS.sleep(15);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-
             }
             tick();
             render();
@@ -101,38 +91,8 @@ public class Game extends Canvas implements Runnable {
 
     public void tick() {
         this.sh.tick();
-        //this.disable();
-        // Level[] levels1 = this.levels;
-        // if (sh.countBricksAndDetermineWin()){
-        //new Level("Resources/Levels/level2.txt", this.sh);
-        //  this.sh.countBricksAndDetermineWin();
-        //}
-        // sh.countBricksAndDetermineWin();
-        //System.exit(0);
-        //}
-        //for(int i = 0; i > 2; i++){
-
-        //  if (sh.countBricksAndDetermineWin() == true){
-        // new Level("Resources/Levels/level2.txt", this.sh);
-        ////this.brick
-        // }
-        //switch(tick){
-        //   case 1: s
     }
-    //if(sh.countBricksAndDetermineWin() == true){
-    //  Level level = new Level("Resources/Levels/level2.txt", this.sh);
-    // endGame();
 
-    //  }
-    // sh.countBricksAndDetermineWin();
-    //}
-    //public Level[] getLevels() {
-    //new Level("Resources/Levels/level2.txt", this.sh);
-    // return levels;
-    // }
-//sh.countBricksAndDetermineWin();
-    //}
-    //}
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
 
@@ -145,7 +105,6 @@ public class Game extends Canvas implements Runnable {
 
         g2.setColor(Color.BLACK);
         g2.fillRect(0, 0, Game.window.width(), Game.window.height());
-
         this.sh.render(g2);
 
         g2.setColor(Color.WHITE);
@@ -159,28 +118,4 @@ public class Game extends Canvas implements Runnable {
     public static void main(String[] args) {
         new Game(gameSizeWidth, gameSizeHeight);
     }
-
-    //private boolean endGame() {
-    //      boolean game = sh.countBricksAndDetermineWin() == false;
-    //   return false;
-//}
-
-    /*private void level() {
-            int level = 0;
-        switch(level){
-            case 1: level1();
-            break;
-            case 2: level2();
-            break;
-            default:
-        }
-      //  new Level("Resources/Levels/level1.txt", this.sh);
-       // new Level("Resources/Levels/level2.txt", this.sh);
-    }
-    private void level1() {
-         new Level("Resources/Levels/level1.txt", this.sh);
-    }
-    private void level2() {
-        new Level("Resources/Levels/level2.txt", this.sh);
-    }*/
 }
