@@ -20,9 +20,9 @@ public abstract class StandardGameObject {
     /**
      * This method declares the variables.
      *
-     * @param _x
-     * @param _y
-     * @param _id
+     * @param _x This is the width.
+     * @param _y This is the height.
+     * @param _id This is the enumeration of all the classes.
      */
     public StandardGameObject(double _x, double _y, StandardID _id) {
         this._x = _x;

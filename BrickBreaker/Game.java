@@ -17,10 +17,11 @@ public class Game extends Canvas implements Runnable {
 
     protected Thread thread;
     protected boolean running = false;
-    public static Window window;
+    protected static Window window;
     protected StandardHandler sh;
     protected Paddle paddle;
-    public static int score = 0;
+    protected BallGameMenu begin;
+    protected static int score = 0;
     protected Font font;
     private final int paddlePlacementWidth = 300;
     private final int paddlePlacementHeight = 700;
@@ -32,28 +33,32 @@ public class Game extends Canvas implements Runnable {
     private final int scoreSizeHeightPlacement =50;
     private final int backgroundWidth = 0;
     private final int backgroundHeight = 0;
+    private final int inFrontOfBackgroundPlacement = 3;
     private final static int gameSizeWidth = 800;
     private final static int gameSizeHeight = 800;
+
 
     /*
     This method displays the games height and width.
     */
     public Game(int width, int height) {
         Game.window = new Window(width, height, "Bricks Be Gone", this);
-
+        //This pulls the information from the StandardHandler.
         this.sh = new StandardHandler();
-
+        //This gathers the information from the paddle.
         this.paddle = new Paddle(paddlePlacementWidth, paddlePlacementHeight, this.sh);
-
+        //This gathers the information from the ball.
         new Ball(ballPlacementWidth, ballPlacementHeight, this.sh);
-
+        //This gathers the information from the level resource folder.
         new Level("src/Resources/Levels/Level1.txt", this.sh);
-
+        //This diplays the information in a font.
         this.font = new Font(fontType, Font.TRUETYPE_FONT, fontSize);
-
+        //This adds the use of being able to use the keys.
         this.addKeyListener(paddle);
-
+        //This starts the game.
         this.start();
+        //This will bring up the start menu.
+        this.begin = new BallGameMenu();
     }
 
 
@@ -111,7 +116,7 @@ public class Game extends Canvas implements Runnable {
     public void render() {
         BufferStrategy bs = this.getBufferStrategy();
         if (bs == null) {
-            this.createBufferStrategy(3);
+            this.createBufferStrategy(inFrontOfBackgroundPlacement);
             return;
         }
 
@@ -126,6 +131,7 @@ public class Game extends Canvas implements Runnable {
         bs.show();
     }
 
+    //This is the main method.
     public static void main(String[] args) {
         new Game(gameSizeWidth, gameSizeHeight);
     }
