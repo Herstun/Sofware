@@ -1,22 +1,25 @@
 package BrickBreaker;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import javax.swing.JOptionPane;
-
 /**
  * This method creates the ball and makes its properties.
+ *
  * @author Tyler, Last updated: 2/24/2020
  */
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 public class Ball extends StandardGameObject {
 
-    private int ballWidth = 15;
-    private int ballHeight = 15;
-    private int ballVelocityX = 5;
-    private int ballVelocityY = -5;
+    private final int ballWidth = 15;
+    private final int ballHeight = 15;
+    private final int ballVelocityX = 5;
+    private final int ballVelocityY = -5;
 
     /**
      * This method declares the balls parameters.
+     *
      * @param _x
      * @param _y
      * @param sh
@@ -58,6 +61,7 @@ public class Ball extends StandardGameObject {
 
     /**
      * This method draws the ball onto the canvas.
+     *
      * @param ball
      */
     @Override

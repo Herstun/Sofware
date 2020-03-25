@@ -1,13 +1,12 @@
 package BrickBreaker;
 
+/**
+ * This creates a canvas for the game to run on.
+ * @author Marquis, Last updated: 2/10/2020
+ */
 import java.awt.Canvas;
 import javax.swing.JFrame;
 
-/**
- * This creates a canvas for the game to run on.
- *
- * @author Marquis, Last updated: 2/10/2020
- */
 public class Window extends Canvas {
 
     protected final JFrame frame;

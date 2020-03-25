@@ -1,17 +1,16 @@
 package BrickBreaker;
 
+/**
+ * This creates the bricks height and width as well as the color of the brick.
+ * @author Tyler, Last updated 2/23/2020
+ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-/**
- * This creates the bricks height and width as well as the color of the brick.
- *
- * @author Tyler, Last updated 2/23/2020
- */
 public class Brick extends StandardGameObject {
 
-    protected int brickWidth = 80;
-    protected int brickHeight = 20;
+    protected final int brickWidth = 80;
+    protected final int brickHeight = 20;
     protected Color color;
 
     /**
@@ -58,7 +57,6 @@ public class Brick extends StandardGameObject {
 
     /**
      * This method draws the brick onto the canvas.
-     *
      * @param brick
      */
     @Override

@@ -1,16 +1,15 @@
 package BrickBreaker;
 
+/**
+ * This is creating a paddle and giving the properties to no go out of the
+ * window of the game.
+ * @author Dymond, Last updated 2/21/2020
+ */
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-/**
- * This is creating a paddle and giving the properties to no go out of the
- * window of the game.
- *
- * @author Dymond, Last updated 2/21/2020
- */
 public class Paddle extends StandardGameObject implements KeyListener {
 
     protected StandardHandler sh;

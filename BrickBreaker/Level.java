@@ -1,15 +1,15 @@
 package BrickBreaker;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 /**
  * This method creates the level and reads throughout the text file and places
  * the bricks onto the canvas.
  *
  * @author Jerid, Last updated: 2/22/2020
  */
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Level {
 
     protected Scanner file = null;

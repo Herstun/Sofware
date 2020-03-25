@@ -1,14 +1,13 @@
 package BrickBreaker;
 
+/**
+ * This method if for the handling the game and acts as a game engine.
+ * @author Jerid, Tyler, Marquis; Last updated: 2/20/2020
+ */
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- * This method if for the handling the game and acts as a game engine.
- *
- * @author Jerid, Tyler, Marquis; Last updated: 2/20/2020
- */
 public class StandardHandler {
 
     private ArrayList<StandardGameObject> entities;
@@ -27,6 +26,7 @@ public class StandardHandler {
      */
     public void tick() {
         if (this.countBricksAndDetermineWin()) {
+            //new Level("src/Resources.Levels/level2.txt",StandardHandler);
             JOptionPane.showMessageDialog(null, "Congrats, you won!");
             System.exit(0);
         }
