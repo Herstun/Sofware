@@ -5,10 +5,12 @@
  */
 package BrickBreaker.ApiTest;
 
+//import BrickBreaker.Game;
 /**
  *
  * @author Rouxk
  */
+
 public class TwitterAdapter implements TwitterInterface{
     protected static final TwitterInterface thisApi = new TwitterConnector();
     @Override

@@ -12,6 +12,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.concurrent.TimeUnit;
 import Menu.BallGameMenu;
+import BrickBreaker.ApiTest.TwitterAdapter;
 
 /**
  *This is the enumeration of the properties of game and makes it runnable.
@@ -23,7 +24,7 @@ public class Game extends Canvas implements Runnable {
     protected static Window window;
     protected StandardHandler sh;
     protected Paddle paddle;
-    protected static int score = 0;
+    public static int score = 0;
     protected Font font;
     private final int paddlePlacementWidth = 300;
     private final int paddlePlacementHeight = 700;
@@ -44,6 +45,7 @@ public class Game extends Canvas implements Runnable {
     boolean lost;
     protected GUI gui;
     protected BallGameMenu menu;
+    public static TwitterAdapter twitter =new TwitterAdapter();
 
     private final int MAX_LEVELS = 7;
 	public Level[] levels = new Level[MAX_LEVELS];
@@ -97,6 +99,7 @@ public class Game extends Canvas implements Runnable {
             this.thread.join();
         } catch (InterruptedException e) {
         }
+        this.twitter.postTweet(score);
 
         this.running = false;
         System.exit(exit);

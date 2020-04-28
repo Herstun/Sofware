@@ -49,6 +49,7 @@ public class Ball extends StandardGameObject {
         //If it goes past the paddle then it display a losing message.
         if (this._y >= Game.window.height()) {
             JOptionPane.showMessageDialog(null, "You lost! Your score was: " + Game.score);
+            Game.twitter.postTweet(Game.score);
             System.exit(0);
         }
         //This is the movement of the ball.
