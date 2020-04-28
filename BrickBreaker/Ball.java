@@ -2,7 +2,6 @@ package BrickBreaker;
 
 /**
  * This method creates the ball and makes its properties.
- *
  * @author Tyler, Last updated: 2/24/2020
  */
 import java.awt.Color;
@@ -52,7 +51,8 @@ public class Ball extends StandardGameObject {
             JOptionPane.showMessageDialog(null, "You lost! Your score was: " + Game.score);
             System.exit(0);
         }
-        //This is the movement of the ball
+        //This is the movement of the ball.
+
         //This is the vertical motion of the ball.
         this._x += this.velX;
         //This is the motion of the ball horizontally.

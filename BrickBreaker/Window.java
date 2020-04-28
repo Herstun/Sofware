@@ -49,4 +49,5 @@ public class Window extends Canvas {
     public int height() {
         return this.frame.getHeight();
     }
+    
 }

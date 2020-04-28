@@ -42,7 +42,7 @@ public class Brick extends StandardGameObject {
                 this.color = Color.GREEN;
                 break;
             case 4:
-                //yellow brick
+                //Orange brick
                 this.color = Color.ORANGE;
                 break;
         }

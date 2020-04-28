@@ -2,7 +2,7 @@ package BrickBreaker;
 
 /**
  * This method is for the objects of the game and to declare the variables.
- * @author Dymond, Tyler,Jerid, and Marquis; Last updated: 2/15/2020
+ * @author Tyler; Last updated: 3/18/2020
  */
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

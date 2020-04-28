@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class StandardHandler {
 
-    private ArrayList<StandardGameObject> entities;
+    protected ArrayList<StandardGameObject> entities;
 
     /**
      * This method is declaring the objects with the ArrayList as entities.
@@ -118,5 +118,9 @@ public class StandardHandler {
             }
         }
         return brick == 0;
+    }
+
+    Iterable<Object> getEntities() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
