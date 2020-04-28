@@ -1,5 +1,3 @@
-package Ballgamemen;
-
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -81,6 +79,8 @@ public class BallGameMenu extends Application {
     }
 
     private static class MenuItem extends HBox {
+        private static int gameSizeWidth = 800;
+        private static int gameSizeHeight = 800;
         private Text text;
         private Runnable script;
         private MenuItem(String name) {
@@ -89,7 +89,7 @@ public class BallGameMenu extends Application {
             text.setFont(FONT);
             getChildren().addAll(text);
             setActive(false);
-            setOnActivate(() -> System.out.println(name + " activated"));
+            setOnActivate(() -> new Game(gameSizeWidth, gameSizeHeight));   
         }
         public void setActive(boolean b) {
             text.setFill(b ? Color.GREEN : Color.GREY);
