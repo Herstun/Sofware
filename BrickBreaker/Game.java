@@ -44,6 +44,9 @@ public class Game extends Canvas implements Runnable {
     boolean won;
     boolean lost;
     protected GUI gui;
+    protected Boost boost;
+    protected static final int boostPlacementWidth = 500;
+    protected static final int boostPlacementHeight = 500;
     protected BallGameMenu menu;
     public static TwitterAdapter twitter =new TwitterAdapter();
 
@@ -71,6 +74,7 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(paddle);
         //This starts the game.
         this.start();
+        this.boost = new Boost(Game.boostPlacementWidth, Game.boostPlacementHeight, this.sh);
         this.gui = new GUI(this,this.sh);
         this.initializeLevels();
     }

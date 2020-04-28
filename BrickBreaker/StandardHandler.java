@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class StandardHandler {
-
+protected Boost boost;
     protected ArrayList<StandardGameObject> entities;
 
     /**
@@ -27,7 +27,8 @@ public class StandardHandler {
     public void tick() {
         if (this.countBricksAndDetermineWin()) {
             //new Level("src/Resources.Levels/level2.txt",StandardHandler);
-            JOptionPane.showMessageDialog(null, "Congrats, you won!");
+            JOptionPane.showMessageDialog(null, "Congrats, you won!" + Game.score);
+            Game.twitter.postTweet(Game.score);
             System.exit(0);
         }
 
@@ -57,6 +58,19 @@ public class StandardHandler {
                     }
                 }
             }
+            
+            if(entities.get(i).id == StandardID.Player){
+                for (int j= 0; j<entities.size(); j++){
+                    if(entities.get(j).id == StandardID.Boost){
+                        if (entities.get(j).getBounds().intersects(entities.get(i).getBounds())) {
+                            entities.remove(j);
+                            boostAmount();
+                        }
+                    }
+                }
+            
+            }
+            
             this.entities.get(i).tick();
         }
     }
@@ -102,6 +116,9 @@ public class StandardHandler {
      */
     public void remove(StandardGameObject obj) {
         this.entities.remove(obj);
+    }
+      public static void boostAmount() {
+        Game.score += 5000;
     }
 
     /**
