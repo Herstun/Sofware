@@ -16,6 +16,7 @@ public class Ball extends StandardGameObject {
     private final int ballVelocityX = 5;
     private final int ballVelocityY = -5;
     protected final String scoreMessage = "You lost! Your score was: ";
+    private Color ballColor = Color.BLUE;
 
     /**
      * This method declares the balls parameters.
@@ -68,7 +69,7 @@ public class Ball extends StandardGameObject {
      */
     @Override
     public void render(Graphics2D ball) {
-        ball.setColor(Color.blue);
+        ball.setColor(ballColor);
         ball.fillOval((int) _x, (int) _y, (int) this.width, (int) this.height);
     }
 }
