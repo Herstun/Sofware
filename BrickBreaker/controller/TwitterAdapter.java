@@ -1,4 +1,4 @@
-package BrickBreaker.ApiTest;
+package BrickBreaker.controller;
 
 /**
  * This class is the adapter/translator class that gathers the score form the

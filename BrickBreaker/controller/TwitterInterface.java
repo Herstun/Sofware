@@ -1,4 +1,4 @@
-package BrickBreaker.ApiTest;
+package BrickBreaker.controller;
 
 /**
  * This interface is defining the the method that needs to be implemented for

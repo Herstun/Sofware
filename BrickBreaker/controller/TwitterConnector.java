@@ -1,4 +1,4 @@
-package BrickBreaker.ApiTest;
+package BrickBreaker.controller;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -59,7 +59,7 @@ public class TwitterConnector implements TwitterInterface {
         }
         for (Status st : status) {
             //This statement will print the posts from twitter.
-            System.out.println(st.getUser().getName() + "------" + st.getText());
+            System.out.println(st.getText());
         }
     }
 }
