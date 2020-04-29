@@ -38,26 +38,20 @@ public class Game extends Canvas implements Runnable {
     private final int backgroundWidth = 0;
     private final int backgroundHeight = 0;
     private final int inFrontOfBackgroundPlacement = 3;
-    private final static int gameSizeWidth = 800;
-    private final static int gameSizeHeight = 800;
-    boolean won;
-    boolean lost;
-    protected GUI gui;
     protected Boost boost;
     protected static final int boostPlacementWidth = 500;
     protected static final int boostPlacementHeight = 500;
     protected BallGameMenu menu;
+    protected final String scoreMessage2 = "Score: ";
+    protected final String levelLocation = "src/Resources/Levels/Level1.txt"; 
+    protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter =new TwitterAdapter();
-
-    private final int MAX_LEVELS = 7;
-	public Level[] levels = new Level[MAX_LEVELS];
-	public int levelNum = 0;
 
     /**
      *This method displays the games height and width.
     */
-    public Game(int width, int height) {
-        Game.window = new Window(width, height, "Bricks Be Gone", this);
+    public Game(int _width, int _height) {
+        Game.window = new Window(_width, _height, title, this);
         //This pulls the information from the StandardHandler.
         this.sh = new StandardHandler();
         //This gathers the information from the paddle.
@@ -65,7 +59,7 @@ public class Game extends Canvas implements Runnable {
         //This gathers the information from the ball.
         new Ball(ballPlacementWidth, ballPlacementHeight, this.sh);
         //This gathers the information from the level resource folder.
-        new Level("src/Resources/Levels/Level1.txt", this.sh);
+        new Level(levelLocation, this.sh);
         //new Level("src/Resources/Levels/level2.txt", this.sh);
         //This diplays the information in a font.
         this.font = new Font(fontType, Font.TRUETYPE_FONT, fontSize);
@@ -74,8 +68,6 @@ public class Game extends Canvas implements Runnable {
         //This starts the game.
         this.start();
         this.boost = new Boost(Game.boostPlacementWidth, Game.boostPlacementHeight, this.sh);
-        this.gui = new GUI(this,this.sh);
-        this.initializeLevels();
     }
 
 
@@ -131,11 +123,6 @@ public class Game extends Canvas implements Runnable {
     */
     public void tick() {
         this.sh.tick();
-        if(!lost && !won){
-            sh.tick();
-           // levels[levelNum].tick();
-            gui.tick();
-        }
     }
 
     /**
@@ -154,113 +141,15 @@ public class Game extends Canvas implements Runnable {
         this.sh.render(g2);
         g2.setColor(Color.WHITE);
         g2.setFont(this.font);
-        g2.drawString("Score: " + Game.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
+        g2.drawString(scoreMessage2 + Game.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
         g2.dispose();
         bs.show();
     }
-
-    /**
-     * This method will initialize the levels.
-    */
-    private void initializeLevels(){
-		for(int i = 0; i<levels.length; i++){
-			//Exception is handled in the Level constructor.
-			levels[i] = new Level("Resources/Levels/Level1.txt"+(i+1)+".txt", this, this.sh);
-		}
-	}
-
-    /**
-     * This method will reload the level if you were to die.
-     */
-    public void reloadAllLevels(){
-		for(int i = 0; i<levels.length; i++){
-			levels[i].reload();
-		}
-	}
-
-    /**
-     *This is the main method.
-    */
-   // public static void main(String[] args) {
-      //  new Game(gameSizeWidth, gameSizeHeight);
-  //  }
-    
+    //=================================== Getters =============================================
     
     public int getScore(){
         return score;
     }
+    
+    //================================== Setters ==============================================
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-if(lost || won){
-			if(firstPass){//allows for a temporary clock to let the screen fade to black.
-
-				if(alpha < 255){
-					alpha++;
-				}else{
-					firstPass = false;
-
-					if(won){
-						levelNum++;
-						this.bg.setImage("space"+levelNum);
-					}
-
-					if(lost){
-						GUI.lives--;
-						if(GUI.lives == 0){
-							this.levels[levelNum].clear();
-							this.reloadAllLevels();
-							this.bg.setImage("space0");
-							this.gameState = State.GameOver;
-
-						}
-					}
-					//songBox.clearSFX();
-					this.levels[levelNum].reload();
-					if(this.gameState != State.GameOver)
-						this.handler.addEntity(new Ball(300,300,this,this.difficulty));
-				}
-
-			}else{
-				if(alpha > 0){
-					alpha--;
-				}else{
-					lost = false;
-					started = false;
-					firstPass = true;
-					won = false;
-				}
-
-			}
-
-			g2.setColor(new Color(0,0,0,alpha));
-			g2.fillRect(0, 0, this.window.returnWidth(), this.window.returnHeight());
-		}
-
-		/************************DO NOT PLACE ANY MORE DRAWING INSTRUCTIONS WITHIN THIS SECTION OF THE RENDER METHOD**********************/
-
-	//	g.dispose();
-	//	g2.dispose();
-
-	//	bs.show();
-	//}

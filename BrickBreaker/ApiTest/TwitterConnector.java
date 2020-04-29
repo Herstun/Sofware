@@ -26,6 +26,8 @@ public class TwitterConnector implements TwitterInterface {
     private final ConfigurationBuilder cb = new ConfigurationBuilder();
 
     /**
+     * This method gathers the keys to connect to twitter and posts tweets and
+     * displays them in the output.
      *
      * @param _score This is the score from the end of the game.
      */
