@@ -12,6 +12,10 @@ public class Brick extends StandardGameObject {
     protected final int brickWidth = 80;
     protected final int brickHeight = 20;
     protected Color color;
+    private Color brickColorTypeOne = Color.RED;
+    private Color brickColorTypeTwo = Color.BLUE;
+    private Color brickColorTypeThree = Color.GREEN;
+    private Color brickColorTypeFour = Color.ORANGE;
 
     /**
      * This method creates the brick and makes the color of the brick with the
@@ -31,19 +35,19 @@ public class Brick extends StandardGameObject {
                 return;
             case 1:
                 //red brick
-                this.color = Color.RED;
+                this.color = brickColorTypeOne;
                 break;
             case 2:
                 //blue brick
-                this.color = Color.BLUE;
+                this.color = brickColorTypeTwo;
                 break;
             case 3:
                 //green brick
-                this.color = Color.GREEN;
+                this.color = brickColorTypeThree;
                 break;
             case 4:
                 //Orange brick
-                this.color = Color.ORANGE;
+                this.color = brickColorTypeFour;
                 break;
         }
     }
