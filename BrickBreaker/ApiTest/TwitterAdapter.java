@@ -1,20 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BrickBreaker.ApiTest;
 
-//import BrickBreaker.Game;
 /**
+ * This class is the adapter/translator class that gathers the score form the
+ * game and passes the score to the twitter connector through the interface.
  *
- * @author Rouxk
+ * @author Tyler Roux, Last updated 4/05/2020
  */
+public class TwitterAdapter implements TwitterInterface {
 
-public class TwitterAdapter implements TwitterInterface{
     protected static final TwitterInterface thisApi = new TwitterConnector();
+
     @Override
-    public void postTweet(int _score){
-        thisApi.postTweet( _score);
+    public void postTweet(int _score) {
+        thisApi.postTweet(_score);
     }
 }

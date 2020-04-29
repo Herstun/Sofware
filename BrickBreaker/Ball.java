@@ -15,6 +15,7 @@ public class Ball extends StandardGameObject {
     private final int ballHeight = 15;
     private final int ballVelocityX = 5;
     private final int ballVelocityY = -5;
+    protected final String scoreMessage = "You lost! Your score was: ";
 
     /**
      * This method declares the balls parameters.
@@ -48,7 +49,7 @@ public class Ball extends StandardGameObject {
         }
         //If it goes past the paddle then it display a losing message.
         if (this._y >= Game.window.height()) {
-            JOptionPane.showMessageDialog(null, "You lost! Your score was: " + Game.score);
+            JOptionPane.showMessageDialog(null, scoreMessage + Game.score);
             Game.twitter.postTweet(Game.score);
             System.exit(0);
         }
