@@ -43,9 +43,11 @@ public class Game extends Canvas implements Runnable {
     protected static final int boostPlacementHeight = 500;
     protected BallGameMenu menu;
     protected final String scoreMessage2 = "Score: ";
-    protected final String levelLocation = "src/Resources/Levels/Level1.txt"; 
+    protected final String levelLocation = "src/Resources/Levels/Level1.txt";
     protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter =new TwitterAdapter();
+    private Color backgroundColor = Color.BLACK;
+    private Color backgroundTopBarColor = Color.WHITE;
 
     /**
      *This method displays the games height and width.
@@ -136,20 +138,20 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics2D g2 = (Graphics2D) bs.getDrawGraphics();
-        g2.setColor(Color.BLACK);
+        g2.setColor(backgroundColor);
         g2.fillRect(backgroundWidth, backgroundHeight, Game.window.width(), Game.window.height());
         this.sh.render(g2);
-        g2.setColor(Color.WHITE);
+        g2.setColor(backgroundTopBarColor);
         g2.setFont(this.font);
         g2.drawString(scoreMessage2 + Game.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
         g2.dispose();
         bs.show();
     }
     //=================================== Getters =============================================
-    
+
     public int getScore(){
         return score;
     }
-    
+
     //================================== Setters ==============================================
 }
