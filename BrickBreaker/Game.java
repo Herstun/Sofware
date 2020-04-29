@@ -165,7 +165,7 @@ public class Game extends Canvas implements Runnable {
     private void initializeLevels(){
 		for(int i = 0; i<levels.length; i++){
 			//Exception is handled in the Level constructor.
-			levels[i] = new Level("Resources/Levels/level"+(i+1)+".txt", this, this.sh);
+			levels[i] = new Level("Resources/Levels/Level1.txt"+(i+1)+".txt", this, this.sh);
 		}
 	}
 
@@ -181,9 +181,9 @@ public class Game extends Canvas implements Runnable {
     /**
      *This is the main method.
     */
-    public static void main(String[] args) {
-        new Game(gameSizeWidth, gameSizeHeight);
-    }
+   // public static void main(String[] args) {
+      //  new Game(gameSizeWidth, gameSizeHeight);
+  //  }
     
     
     public int getScore(){
