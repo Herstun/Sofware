@@ -41,7 +41,7 @@ public class Ball extends StandardGameObject {
     @Override
     public void tick() {
         //This acts as a bounce back when it reaches the window bounds. Collision of the ball and the left and right walls.
-        if (this._x < 0 || this._x >= Game.window.width() - this.width) {
+        if (this._x < 0 || this._x >= GameController.window.width() - this.width) {
             this.velX = -this.velX;
         }
         //If it hits the top of the window it will go back into the canvas and continue. Collision with the top wall.
@@ -49,9 +49,9 @@ public class Ball extends StandardGameObject {
             this.velY = -this.velY;
         }
         //If it goes past the paddle then it display a losing message.
-        if (this._y >= Game.window.height()) {
-            JOptionPane.showMessageDialog(null, scoreMessage + Game.score);
-            Game.twitter.postTweet(Game.score);
+        if (this._y >= GameController.window.height()) {
+            JOptionPane.showMessageDialog(null, scoreMessage + GameController.score);
+            GameController.twitter.postTweet(GameController.score);
             System.exit(0);
         }
         //This is the movement of the ball.

@@ -20,7 +20,7 @@ public class Level {
 
     protected Scanner file;
     protected StandardHandler sh;
-    protected Game game;
+    protected GameController game;
     protected String level;
     private final int blockPlacementX = 0;
     private final int blockPlacementY = 40;

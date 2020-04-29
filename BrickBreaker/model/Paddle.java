@@ -6,6 +6,7 @@ package BrickBreaker.model;
  * @author Dymond, Last updated 2/21/2020
  */
 import BrickBreaker.*;
+import BrickBreaker.controller.GameController;
 import BrickBreaker.view.*;
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -14,6 +15,7 @@ import java.awt.event.KeyListener;
 //import view.Window;
 import BrickBreaker.controller.StandardGameObject;
 import BrickBreaker.controller.StandardID;
+import BrickBreaker.controller.GameController;
 
 public class Paddle extends StandardGameObject implements KeyListener {
 
@@ -46,16 +48,16 @@ public class Paddle extends StandardGameObject implements KeyListener {
             this._x = 0;
         }
 
-        if (this._x > Game.window.width() - this.width) {
-            this._x = Game.window.width() - this.width;
+        if (this._x > GameController.window.width() - this.width) {
+            this._x = GameController.window.width() - this.width;
         }
 
         if (this._y < 0) {
             this._y = 0;
         }
 
-        if (this._y > Game.window.height() - this.height) {
-            this._y = Game.window.height() - this.height;
+        if (this._y > GameController.window.height() - this.height) {
+            this._y = GameController.window.height() - this.height;
         }
 
         this._x += velX;

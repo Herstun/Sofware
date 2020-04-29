@@ -1,5 +1,6 @@
 package BrickBreaker;
 
+import BrickBreaker.controller.GameController;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -116,7 +117,7 @@ public class BallGameMenu extends Application {
             text.setFont(FONT);
             getChildren().addAll(text);
             setActive(isActiveOrNot);
-            setOnActivate(() -> new Game(gameSizeWidth, gameSizeHeight));
+            setOnActivate(() -> new GameController(gameSizeWidth, gameSizeHeight));
         }
         public void setActive(boolean _b) {
             text.setFill(_b ? highlightedOption : notHighlightedOption);
