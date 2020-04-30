@@ -12,6 +12,7 @@ public class Score implements ScoreInterface{
     private final String sourceOfScoreTextFile = "src/resources/Score/score.txt";
     private final String messagePerScorePrint = "The score was:" //+_+ _score
 
+    //This will be the portion where it will be get the score, find the text file, and than print a message into the text file.
     @Override
     public void writeScore(int _score) {
         try {
