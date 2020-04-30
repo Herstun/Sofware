@@ -9,7 +9,7 @@ package BrickBreaker.controller;
 public class TwitterAdapter implements TwitterInterface {
 
     protected static final TwitterInterface thisApi = new TwitterConnector();
-    protected static final ScoreInterface scores = new Score();
+    protected static final ScoreInterface scores = new ScoreDataStore();
 
     @Override
     public void postTweet(int _score) {
