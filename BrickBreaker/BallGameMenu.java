@@ -1,5 +1,10 @@
 package BrickBreaker;
 
+/**
+ * The font being used in the application // shows the list of items vertically
+ * down (both Start Game and Exit) // current item shows highlighted selection
+ * of Vbox size of window
+ */
 import BrickBreaker.controller.GameController;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -18,27 +23,21 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * The font being used in the application
- * // shows the list of items vertically down (both Start Game and Exit)
- * // current item shows highlighted selection of Vbox
- * size of window
- */
-
 public class BallGameMenu extends Application {
+
     private static final Font FONT = Font.font("arial", FontWeight.THIN, 18);
     private VBox menuBox;
     private int currentItem = 0;
     private static int gameSizeWidth = 800;
     private static int gameSizeHeight = 800;
     String title = "Brick Breaker";
-    private final int placingFrameTitleX= 3000;
+    private final int placingFrameTitleX = 3000;
     private final int placingFrameTitleY = 600;
-    private final int sizeFrameWindowX= 800;
+    private final int sizeFrameWindowX = 800;
     private final int sizeFrameWindowY = 600;
     private final String exit = "EXIT";
     private final String gameStart = "Start Game";
-    private final int positionOfHboxX= 300;
+    private final int positionOfHboxX = 300;
     private final int positionOfHboxY = 50;
     private static final int contentFrameX = 200;
     private static final int contentFrameY = 200;
@@ -56,10 +55,11 @@ public class BallGameMenu extends Application {
     private static Color notHighlightedOption = Color.GREY;
     private boolean movedAwayFrom = false;
     private boolean movedOnto = true;
-    /** new rectangle is shown as a new background to show off white text of both exit and Start game
-     * //Placements of location for "tittle box"
-     *  //creates Exit for the menu page
-     * // placement of  options
+
+    /**
+     * new rectangle is shown as a new background to show off white text of both
+     * exit and Start game //Placements of location for "tittle box" //creates
+     * Exit for the menu page // placement of options
      */
     private Parent createContent() {
         Pane root = new Pane();
@@ -79,8 +79,11 @@ public class BallGameMenu extends Application {
         root.getChildren().addAll(bg, hbox, menuBox);
         return root;
     }
+
     /**
-     *Set title of the game in the center using X and y coordinances.
+     * Set title of the game in the center using X and y coordenantes
+     * coordinances.
+     *
      * @return
      */
     private Node Content() {
@@ -95,10 +98,13 @@ public class BallGameMenu extends Application {
         }
         return letters;
     }
+
     private MenuItem getMenuItem(int _index) {
         return (MenuItem) menuBox.getChildren().get(_index);
     }
+
     private static class ContentFrame extends StackPane {
+
         public ContentFrame(Node content) {
             setAlignment(contentFrameAlignment);
             Rectangle frame = new Rectangle(contentFrameX, contentFrameY);
@@ -111,6 +117,7 @@ public class BallGameMenu extends Application {
 
         private final Text text;
         private Runnable script;
+
         private MenuItem(String name) {
             setAlignment(menuItemPosition);
             text = new Text(name);
@@ -119,22 +126,26 @@ public class BallGameMenu extends Application {
             setActive(isActiveOrNot);
             setOnActivate(() -> new GameController(gameSizeWidth, gameSizeHeight));
         }
-        public void setActive(boolean _b) {
-            text.setFill(_b ? highlightedOption : notHighlightedOption);
+
+        public void setActive(boolean _boolean) {
+            text.setFill(_boolean ? highlightedOption : notHighlightedOption);
         }
-        public void setOnActivate(Runnable _r) {
-            script = _r;
+
+        public void setOnActivate(Runnable _run) {
+            script = _run;
         }
+
         public void activate() {
-            if (script != null)
+            if (script != null) {
                 script.run();
+            }
         }
     }
 
-
     /**
-     * // For all key press set up (going up and down also enter)
-     *  // set to 0 to set for "limiting" so person cant go up again.
+     * // For all key press set up (going up and down also enter) // set to 0
+     * to set for "limiting" so person cant go up again.
+     *
      * @param _primaryStage
      * @throws Exception
      */
@@ -160,7 +171,7 @@ public class BallGameMenu extends Application {
             }
         });
         _primaryStage.setScene(scene);
-   _primaryStage.setOnCloseRequest(event -> {
+        _primaryStage.setOnCloseRequest(event -> {
         });
         _primaryStage.show();
     }
@@ -168,4 +179,167 @@ public class BallGameMenu extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    //================================== Getters ===============================
+    public static Font getFONT() {
+        return FONT;
+    }
+
+    public VBox getMenuBox() {
+        return menuBox;
+    }
+
+    public int getCurrentItem() {
+        return currentItem;
+    }
+
+    public static int getGameSizeWidth() {
+        return gameSizeWidth;
+    }
+
+    public static int getGameSizeHeight() {
+        return gameSizeHeight;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getPlacingFrameTitleX() {
+        return placingFrameTitleX;
+    }
+
+    public int getPlacingFrameTitleY() {
+        return placingFrameTitleY;
+    }
+
+    public int getSizeFrameWindowX() {
+        return sizeFrameWindowX;
+    }
+
+    public int getSizeFrameWindowY() {
+        return sizeFrameWindowY;
+    }
+
+    public String getExit() {
+        return exit;
+    }
+
+    public String getGameStart() {
+        return gameStart;
+    }
+
+    public int getPositionOfHboxX() {
+        return positionOfHboxX;
+    }
+
+    public int getPositionOfHboxY() {
+        return positionOfHboxY;
+    }
+
+    public static int getContentFrameX() {
+        return contentFrameX;
+    }
+
+    public static int getContentFrameY() {
+        return contentFrameY;
+    }
+
+    public int getMenuBoxPositionX() {
+        return menuBoxPositionX;
+    }
+
+    public int getMenuBoxPositionY() {
+        return menuBoxPositionY;
+    }
+
+    public boolean isActivateMenu() {
+        return activateMenu;
+    }
+
+    public Color getColorForTitle() {
+        return colorForTitle;
+    }
+
+    public Pos getPositionOfTitle() {
+        return positionOfTitle;
+    }
+
+    public Pos getMenuBoxAlignment() {
+        return menuBoxAlignment;
+    }
+
+    public static Pos getContentFrameAlignment() {
+        return contentFrameAlignment;
+    }
+
+    public static Color getContentFrameColor() {
+        return contentFrameColor;
+    }
+
+    public static Pos getMenuItemPosition() {
+        return menuItemPosition;
+    }
+
+    public static boolean isIsActiveOrNot() {
+        return isActiveOrNot;
+    }
+
+    public static Color getHighlightedOption() {
+        return highlightedOption;
+    }
+
+    public static Color getNotHighlightedOption() {
+        return notHighlightedOption;
+    }
+
+    public boolean isMovedAwayFrom() {
+        return movedAwayFrom;
+    }
+
+    public boolean isMovedOnto() {
+        return movedOnto;
+    }
+
+    //========================= Setters ========================================
+    public void setMenuBox(VBox menuBox) {
+        this.menuBox = menuBox;
+    }
+
+    public void setCurrentItem(int currentItem) {
+        this.currentItem = currentItem;
+    }
+
+    public static void setGameSizeWidth(int gameSizeWidth) {
+        BallGameMenu.gameSizeWidth = gameSizeWidth;
+    }
+
+    public static void setGameSizeHeight(int gameSizeHeight) {
+        BallGameMenu.gameSizeHeight = gameSizeHeight;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public static void setIsActiveOrNot(boolean isActiveOrNot) {
+        BallGameMenu.isActiveOrNot = isActiveOrNot;
+    }
+
+    public static void setHighlightedOption(Color highlightedOption) {
+        BallGameMenu.highlightedOption = highlightedOption;
+    }
+
+    public static void setNotHighlightedOption(Color notHighlightedOption) {
+        BallGameMenu.notHighlightedOption = notHighlightedOption;
+    }
+
+    public void setMovedAwayFrom(boolean movedAwayFrom) {
+        this.movedAwayFrom = movedAwayFrom;
+    }
+
+    public void setMovedOnto(boolean movedOnto) {
+        this.movedOnto = movedOnto;
+    }
+
 }

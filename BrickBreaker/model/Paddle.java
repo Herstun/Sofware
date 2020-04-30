@@ -3,16 +3,14 @@ package BrickBreaker.model;
 /**
  * This is creating a paddle and giving the properties to no go out of the
  * window of the game.
- * @author Dymond, Last updated 2/21/2020
+ *
+ * @author Dymond, Last updated 4/21/2020
  */
-import BrickBreaker.*;
-import BrickBreaker.controller.GameController;
 import BrickBreaker.view.*;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-//import view.Window;
 import BrickBreaker.controller.StandardGameObject;
 import BrickBreaker.controller.StandardID;
 import BrickBreaker.controller.GameController;
@@ -20,15 +18,19 @@ import BrickBreaker.controller.GameController;
 public class Paddle extends StandardGameObject implements KeyListener {
 
     protected StandardHandler sh;
-    private int paddleWidth = 150;
-    private int paddleHeight = 20;
+    private final int paddleWidth = 150;
+    private final int paddleHeight = 20;
+    protected final int keyReleasedVelXLeft = 0;
+    protected final int keyReleasedVelXRight = 0;
+    protected final int keyPressedLeftVelX = -10;
+    protected final int keyPressedRightVelX = 10;
 
     /**
      * This method creates the parameters of the paddle.
      *
-     * @param _x
-     * @param _y
-     * @param handler
+     * @param _x This is the width of the paddle.
+     * @param _y This is the height of the paddle.
+     * @param handler This communicates with the standard handler.
      */
     public Paddle(double _x, double _y, StandardHandler _handler) {
 
@@ -40,7 +42,7 @@ public class Paddle extends StandardGameObject implements KeyListener {
     }
 
     /**
-     * This method controls the game and the objects all at the same motion.
+     * This method controls the paddle to stay in the screen.
      */
     @Override
     public void tick() {
@@ -51,42 +53,33 @@ public class Paddle extends StandardGameObject implements KeyListener {
         if (this._x > GameController.window.width() - this.width) {
             this._x = GameController.window.width() - this.width;
         }
-
-        if (this._y < 0) {
-            this._y = 0;
-        }
-
-        if (this._y > GameController.window.height() - this.height) {
-            this._y = GameController.window.height() - this.height;
-        }
-
         this._x += velX;
     }
 
     /**
      * Draws the paddle and makes it the color you would like.
      *
-     * @param paddle
+     * @param _paddle This is the generator of the paddle.
      */
     @Override
-    public void render(Graphics2D paddle) {
-        paddle.setColor(Color.GREEN);
-        paddle.fillRect((int) this._x, (int) this._y, (int) this.width, (int) this.height);
+    public void render(Graphics2D _paddle) {
+        _paddle.setColor(Color.GREEN);
+        _paddle.fillRect((int) this._x, (int) this._y, (int) this.width, (int) this.height);
     }
 
     /**
      * This is controlling the motion of the paddle while pressing the key.
      *
-     * @param e
+     * @param _e This controls the paddle while a key is pressed.
      */
     @Override
-    public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
+    public void keyPressed(KeyEvent _e) {
+        switch (_e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                this.velX = -10;
+                this.velX = keyPressedLeftVelX;
                 break;
             case KeyEvent.VK_RIGHT:
-                this.velX = 10;
+                this.velX = keyPressedRightVelX;
                 break;
         }
     }
@@ -95,28 +88,64 @@ public class Paddle extends StandardGameObject implements KeyListener {
      * This is controlling the motion of the paddle while not pressing the key
      * allowing it to not move.
      *
-     * @param e
+     * @param _e This allows the paddle to not be moved if the key is not
+     * pressed.
      */
     @Override
-    public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
+    public void keyReleased(KeyEvent _e) {
+        switch (_e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                this.velX = 0;
+                this.velX = keyReleasedVelXLeft;
                 break;
             case KeyEvent.VK_RIGHT:
-                this.velX = 0;
+                this.velX = keyReleasedVelXRight;
                 break;
         }
     }
 
     /**
-     * This method is used for the if a key is typed it will not cause any
+     * This method is used for when a key is typed it will not cause any
      * actions.
      *
-     * @param e
+     * @param _e This is an event key that is used as a place point showing
+     * nothing happens if a key is typed.
      */
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyTyped(KeyEvent _e) {
     }
-}
 
+    //======================== Getters =========================================
+    public StandardHandler getSh() {
+        return sh;
+    }
+
+    public int getPaddleWidth() {
+        return paddleWidth;
+    }
+
+    public int getPaddleHeight() {
+        return paddleHeight;
+    }
+
+    public int getKeyReleasedVelXLeft() {
+        return keyReleasedVelXLeft;
+    }
+
+    public int getKeyReleasedVelXRight() {
+        return keyReleasedVelXRight;
+    }
+
+    public int getKeyPressedLeftVelX() {
+        return keyPressedLeftVelX;
+    }
+
+    public int getKeyPressedRightVelX() {
+        return keyPressedRightVelX;
+    }
+
+    //======================= Setters ==========================================
+    public void setSh(StandardHandler sh) {
+        this.sh = sh;
+    }
+
+}

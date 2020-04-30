@@ -2,20 +2,22 @@ package BrickBreaker.view;
 
 /**
  * This method if for the handling the game and acts as a game engine.
- * @author Jerid, Tyler, Marquis; Last updated: 2/20/2020
+ *
+ * @author Jerid, Tyler, Marquis; Last updated: 4/20/2020
  */
-import BrickBreaker.*;
 import BrickBreaker.controller.GameController;
 import BrickBreaker.controller.StandardGameObject;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import BrickBreaker.view.*;
 import BrickBreaker.controller.StandardID;
+import static BrickBreaker.view.Boost.boostAmount;
 
 public class StandardHandler {
-protected Boost boost;
+
+    protected Boost boost;
     protected ArrayList<StandardGameObject> entities;
+    protected String gameWonMessage = "Congrats, you won!";
 
     /**
      * This method is declaring the objects with the ArrayList as entities.
@@ -31,7 +33,7 @@ protected Boost boost;
      */
     public void tick() {
         if (this.countBricksAndDetermineWin()) {
-            JOptionPane.showMessageDialog(null, "Congrats, you won!" + GameController.score);
+            JOptionPane.showMessageDialog(null, gameWonMessage + GameController.score);
             GameController.twitter.postTweet(GameController.score);
             System.exit(0);
         }
@@ -63,9 +65,9 @@ protected Boost boost;
                 }
             }
 
-            if(entities.get(i).id == StandardID.Player){
-                for (int j= 0; j<entities.size(); j++){
-                    if(entities.get(j).id == StandardID.Boost){
+            if (entities.get(i).id == StandardID.Player) {
+                for (int j = 0; j < entities.size(); j++) {
+                    if (entities.get(j).id == StandardID.Boost) {
                         if (entities.get(j).getBounds().intersects(entities.get(i).getBounds())) {
                             entities.remove(j);
                             boostAmount();
@@ -82,31 +84,31 @@ protected Boost boost;
     /**
      * This method renders the canvas.
      *
-     * @param g2
+     * @param _g2
      */
-    public void render(Graphics2D g2) {
+    public void render(Graphics2D _g2) {
         for (int i = 0; i < entities.size(); i++) {
-            entities.get(i).render(g2);
+            entities.get(i).render(_g2);
         }
     }
 
     /**
      * This method allows for additional objects to be added.
      *
-     * @param obj
+     * @param _object This adds objects to the game.
      */
-    public void addEntity(StandardGameObject obj) {
-        this.entities.add(obj);
+    public void addEntity(StandardGameObject _object) {
+        this.entities.add(_object);
     }
 
     /**
      * This method removes objects that have the incorrect array.
      *
-     * @param obj
+     * @param _object This is removing objects from the game.
      */
-    public void removeEntity(StandardGameObject obj) {
+    public void removeEntity(StandardGameObject _object) {
         for (int i = 0; i < entities.size(); i++) {
-            if (obj == entities.get(i)) {
+            if (_object == entities.get(i)) {
                 entities.remove(i);
                 i--;
             }
@@ -116,13 +118,10 @@ protected Boost boost;
     /**
      * This method removes objects.
      *
-     * @param obj
+     * @param _object This is removing the objects of the game.
      */
-    public void remove(StandardGameObject obj) {
-        this.entities.remove(obj);
-    }
-      public static void boostAmount() {
-        GameController.score += 5000;
+    public void remove(StandardGameObject _object) {
+        this.entities.remove(_object);
     }
 
     /**
@@ -141,4 +140,29 @@ protected Boost boost;
         return brick == 0;
     }
 
+    //================================ Getters =====================================
+    public Boost getBoost() {
+        return boost;
+    }
+
+    public ArrayList<StandardGameObject> getEntities() {
+        return entities;
+    }
+
+    public String getGameWonMessage() {
+        return gameWonMessage;
+    }
+
+    //================================== Setters ===================================
+    public void setBoost(Boost boost) {
+        this.boost = boost;
+    }
+
+    public void setEntities(ArrayList<StandardGameObject> entities) {
+        this.entities = entities;
+    }
+
+    public void setGameWonMessage(String gameWonMessage) {
+        this.gameWonMessage = gameWonMessage;
+    }
 }

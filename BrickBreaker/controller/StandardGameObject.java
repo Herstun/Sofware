@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BrickBreaker.controller;
 
 /**
  * This method is for the objects of the game and to declare the variables.
- * @author Tyler; Last updated: 3/18/2020
+ *
+ * @author Dymond; Last updated: 4/15/2020
  */
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -45,17 +41,76 @@ public abstract class StandardGameObject {
      * This method is the abstract render method that draws the canvas and
      * objects onto the canvas.
      *
-     * @param g2
+     * @param _g2 This method is the render method to draw the canvas.
      */
-    public abstract void render(Graphics2D g2);
+    public abstract void render(Graphics2D _g2);
 
     /**
      * This method is to make sure the canvas is inside the window and all
      * variables work.
      *
-     * @return
+     * @return This returns a new rectangle for the bounds of the canvas.
      */
     public Rectangle getBounds() {
         return new Rectangle((int) _x, (int) _y, (int) width, (int) height);
     }
+
+    //=========================== Getters ======================================
+    public double getX() {
+        return _x;
+    }
+
+    public double getY() {
+        return _y;
+    }
+
+    public double getVelX() {
+        return velX;
+    }
+
+    public double getVelY() {
+        return velY;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public StandardID getId() {
+        return id;
+    }
+
+    //=============================== Setters ==================================
+    public void setX(double _x) {
+        this._x = _x;
+    }
+
+    public void setY(double _y) {
+        this._y = _y;
+    }
+
+    public void setVelX(double velX) {
+        this.velX = velX;
+    }
+
+    public void setVelY(double velY) {
+        this.velY = velY;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setId(StandardID id) {
+        this.id = id;
+    }
+
 }

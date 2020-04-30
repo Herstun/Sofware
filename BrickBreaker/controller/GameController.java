@@ -1,9 +1,10 @@
 package BrickBreaker.controller;
+
 /**
  * This is the main class of the game and controls the starting and stopping of
  * the game.
  *
- * @author Tyler Roux, Last updated 3/20/2020
+ * @author Tyler Roux, Last updated 4/25/2020
  */
 import BrickBreaker.BallGameMenu;
 import java.awt.Canvas;
@@ -14,8 +15,6 @@ import java.awt.image.BufferStrategy;
 import java.util.concurrent.TimeUnit;
 import BrickBreaker.view.*;
 import BrickBreaker.model.Paddle;
-import BrickBreaker.controller.TwitterAdapter;
-//import model.TwitterAdapter;
 
 /**
  * This is the enumeration of the properties of game and makes it runnable.
@@ -50,6 +49,8 @@ public class GameController extends Canvas implements Runnable {
     protected final String levelLocation = "src/Resources/Levels/Level1.txt";
     protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter = new TwitterAdapter();
+    public final Color background = Color.black;
+    public final Color backgroundtop = Color.white;
 
     /**
      * This method displays the games height and width.
@@ -140,10 +141,10 @@ public class GameController extends Canvas implements Runnable {
         }
 
         Graphics2D g2 = (Graphics2D) bs.getDrawGraphics();
-        g2.setColor(Color.BLACK);
+        g2.setColor(background);
         g2.fillRect(backgroundWidth, backgroundHeight, GameController.window.width(), GameController.window.height());
         this.sh.render(g2);
-        g2.setColor(Color.WHITE);
+        g2.setColor(backgroundtop);
         g2.setFont(this.font);
         g2.drawString(scoreMessage2 + GameController.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
         g2.dispose();
@@ -155,5 +156,160 @@ public class GameController extends Canvas implements Runnable {
         return score;
     }
 
+    public Thread getThread() {
+        return thread;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public static Window getWindow() {
+        return window;
+    }
+
+    public StandardHandler getSh() {
+        return sh;
+    }
+
+    public Paddle getPaddle() {
+        return paddle;
+    }
+
+    public Font getFont() {
+        return font;
+    }
+
+    public int getPaddlePlacementWidth() {
+        return paddlePlacementWidth;
+    }
+
+    public int getPaddlePlacementHeight() {
+        return paddlePlacementHeight;
+    }
+
+    public int getBallPlacementWidth() {
+        return ballPlacementWidth;
+    }
+
+    public int getBallPlacementHeight() {
+        return ballPlacementHeight;
+    }
+
+    public String getFontType() {
+        return fontType;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public int getSleep() {
+        return sleep;
+    }
+
+    public int getExit() {
+        return exit;
+    }
+
+    public int getScoreSizeWidthPlacement() {
+        return scoreSizeWidthPlacement;
+    }
+
+    public int getScoreSizeHeightPlacement() {
+        return scoreSizeHeightPlacement;
+    }
+
+    public int getBackgroundWidth() {
+        return backgroundWidth;
+    }
+
+    public int getBackgroundHeight() {
+        return backgroundHeight;
+    }
+
+    public int getInFrontOfBackgroundPlacement() {
+        return inFrontOfBackgroundPlacement;
+    }
+
+    public Boost getBoost() {
+        return boost;
+    }
+
+    public static int getBoostPlacementWidth() {
+        return boostPlacementWidth;
+    }
+
+    public static int getBoostPlacementHeight() {
+        return boostPlacementHeight;
+    }
+
+    public BallGameMenu getMenu() {
+        return menu;
+    }
+
+    public String getScoreMessage2() {
+        return scoreMessage2;
+    }
+
+    public String getLevelLocation() {
+        return levelLocation;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public static TwitterAdapter getTwitter() {
+        return twitter;
+    }
+
+    public Color getBackground() {
+        return background;
+    }
+
+    public Color getBackgroundtop() {
+        return backgroundtop;
+    }
+
     //================================== Setters ==============================================
+    public void setThread(Thread thread) {
+        this.thread = thread;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
+    public static void setWindow(Window window) {
+        GameController.window = window;
+    }
+
+    public void setSh(StandardHandler sh) {
+        this.sh = sh;
+    }
+
+    public void setPaddle(Paddle paddle) {
+        this.paddle = paddle;
+    }
+
+    public static void setScore(int score) {
+        GameController.score = score;
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    public void setBoost(Boost boost) {
+        this.boost = boost;
+    }
+
+    public void setMenu(BallGameMenu menu) {
+        this.menu = menu;
+    }
+
+    public static void setTwitter(TwitterAdapter twitter) {
+        GameController.twitter = twitter;
+    }
 }

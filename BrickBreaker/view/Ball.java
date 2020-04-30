@@ -2,9 +2,9 @@ package BrickBreaker.view;
 
 /**
  * This method creates the ball and makes its properties.
- * @author Tyler, Last updated: 2/24/2020
+ *
+ * @author Tyler, Last updated: 3/24/2020
  */
-import BrickBreaker.*;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import javax.swing.JOptionPane;
@@ -17,17 +17,18 @@ public class Ball extends StandardGameObject {
     private final int ballVelocityX = 5;
     private final int ballVelocityY = -5;
     protected final String scoreMessage = "You lost! Your score was: ";
+    protected final Color ballColor = Color.blue;
 
     /**
      * This method declares the balls parameters.
      *
-     * @param _x
-     * @param _y
-     * @param sh
+     * @param _x This is the balls width.
+     * @param _y This is the balls height.
+     * @param _sh Calls information from standard handler.
      */
-    public Ball(double _x, double _y, StandardHandler sh) {
+    public Ball(double _x, double _y, StandardHandler _sh) {
         super(_x, _y, StandardID.Ball);
-        sh.addEntity(this);
+        _sh.addEntity(this);
         this.width = ballWidth;
         this.height = ballHeight;
         this.velX = ballVelocityX;
@@ -55,7 +56,6 @@ public class Ball extends StandardGameObject {
             System.exit(0);
         }
         //This is the movement of the ball.
-
         //This is the vertical motion of the ball.
         this._x += this.velX;
         //This is the motion of the ball horizontally.
@@ -65,11 +65,38 @@ public class Ball extends StandardGameObject {
     /**
      * This method draws the ball onto the canvas.
      *
-     * @param ball
+     * @param _ball This renders the ball into the game.
      */
     @Override
-    public void render(Graphics2D ball) {
-        ball.setColor(Color.blue);
-        ball.fillOval((int) _x, (int) _y, (int) this.width, (int) this.height);
+    public void render(Graphics2D _ball) {
+        _ball.setColor(ballColor);
+        _ball.fillOval((int) _x, (int) _y, (int) this.width, (int) this.height);
     }
+
+    //============================= Getters ====================================
+    public int getBallWidth() {
+        return ballWidth;
+    }
+
+    public int getBallHeight() {
+        return ballHeight;
+    }
+
+    public int getBallVelocityX() {
+        return ballVelocityX;
+    }
+
+    public int getBallVelocityY() {
+        return ballVelocityY;
+    }
+
+    public String getScoreMessage() {
+        return scoreMessage;
+    }
+
+    public Color getBallColor() {
+        return ballColor;
+    }
+
+    //============================= Setters ====================================
 }

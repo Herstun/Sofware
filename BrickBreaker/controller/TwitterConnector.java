@@ -1,5 +1,11 @@
 package BrickBreaker.controller;
 
+/**
+ * This class connects the game score to twitter and posts a tweet because this
+ * calls the twitter api.
+ *
+ * @author Tyler Roux, Last updated 4/05/2020
+ */
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,12 +15,6 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
-/**
- * This class connects the game score to twitter and posts a tweet because this
- * calls the twitter api.
- *
- * @author Tyler Roux, Last updated 4/05/2020
- */
 public class TwitterConnector implements TwitterInterface {
 
     //These are the keys that are used to access the twitter api.
@@ -26,7 +26,7 @@ public class TwitterConnector implements TwitterInterface {
     private final ConfigurationBuilder cb = new ConfigurationBuilder();
 
     /**
-     * This method gathers the keys to connect to twitter and posts tweets and
+     * This method gathers the keys to connect to twitter and posts a tweet and
      * displays them in the output.
      *
      * @param _score This is the score from the end of the game.
@@ -62,4 +62,27 @@ public class TwitterConnector implements TwitterInterface {
             System.out.println(st.getText());
         }
     }
+
+    //============================= Getters ====================================
+    public String getConsumerKey() {
+        return consumerKey;
+    }
+
+    public String getConsumerSecret() {
+        return consumerSecret;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public String getAccessTokenSecret() {
+        return accessTokenSecret;
+    }
+
+    public ConfigurationBuilder getCb() {
+        return cb;
+    }
+
+    //============================== Setters ===================================
 }
