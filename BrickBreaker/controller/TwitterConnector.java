@@ -24,6 +24,7 @@ public class TwitterConnector implements TwitterInterface {
     private final String accessToken = "1247978652937129987-txU3ImvqXjExiVHkVdAulKWCMTPbwv";
     private final String accessTokenSecret = "3leJtOQLMbDeoX4qhssxyuAmeq72eLtLf2SXpjOHZNeI1";
     private final ConfigurationBuilder cb = new ConfigurationBuilder();
+    private final String whatTheTwitterMessageWillSay = "Your score was : "; // + _score
 
     /**
      * This method gathers the keys to connect to twitter and posts a tweet and
@@ -34,10 +35,10 @@ public class TwitterConnector implements TwitterInterface {
     @Override
     public void postTweet(int _score) {
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey(this.consumerKey)
-                .setOAuthConsumerSecret(this.consumerSecret)
-                .setOAuthAccessToken(this.accessToken)
-                .setOAuthAccessTokenSecret(this.accessTokenSecret);
+            .setOAuthConsumerKey(this.consumerKey)
+            .setOAuthConsumerSecret(this.consumerSecret)
+            .setOAuthAccessToken(this.accessToken)
+            .setOAuthAccessTokenSecret(this.accessTokenSecret);
 
         //This configures the twitter api and allows for building.
         TwitterFactory tf = new TwitterFactory(cb.build());
@@ -45,7 +46,7 @@ public class TwitterConnector implements TwitterInterface {
 
         //This posts a tweet to twitter with your score from the end of the game.
         try {
-            twitter.updateStatus("Your score was : " + _score);
+            twitter.updateStatus(whatTheTwitterMessageWillSay + _score);
         } catch (TwitterException _ex) {
             Logger.getLogger(TwitterConnector.class.getName()).log(Level.SEVERE, null, _ex);
         }
