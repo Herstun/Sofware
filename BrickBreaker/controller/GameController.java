@@ -6,7 +6,7 @@ package BrickBreaker.controller;
  *
  * @author Tyler Roux, Last updated 4/25/2020
  */
-import BrickBreaker.BrickBreakerMenu;
+import BrickBreaker.model.BrickBreakerMenu;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
@@ -49,6 +49,7 @@ public class GameController extends Canvas implements Runnable {
     protected final String levelLocation = "src/Resources/Levels/Level1.txt";
     protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter = new TwitterAdapter();
+    public static ScoreAdapter adapter = new ScoreAdapter();
     public final Color background = Color.black;
     public final Color backgroundtop = Color.white;
 
@@ -98,6 +99,7 @@ public class GameController extends Canvas implements Runnable {
             this.thread.join();
         } catch (InterruptedException e) {
         }
+        this.adapter.writeScore(score);
         this.twitter.postTweet(score);
 
         this.running = false;

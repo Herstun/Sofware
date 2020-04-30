@@ -1,10 +1,11 @@
-package BrickBreaker;
+package BrickBreaker.model;
 
 /**
  * The font being used in the application // shows the list of items vertically
  * down (both Start Game and Exit) // current item shows highlighted selection
  * of Vbox size of window
  */
+import BrickBreaker.*;
 import BrickBreaker.controller.GameController;
 import javafx.application.Application;
 import javafx.geometry.Pos;

@@ -9,10 +9,23 @@ package BrickBreaker.controller;
 public class TwitterAdapter implements TwitterInterface {
 
     protected static final TwitterInterface thisApi = new TwitterConnector();
+    protected static final ScoreInterface scores = new Score();
 
     @Override
     public void postTweet(int _score) {
         thisApi.postTweet(_score);
+        	/*try {
+		FileWriter fw = new FileWriter("src/resources/Score/score.txt", true);
+        try (BufferedWriter bw = new BufferedWriter(fw)) {
+            if(_score > 0){
+                bw.write("The score was:" + " " + _score);
+                bw.newLine();
+            }
+        }
+            System.out.println("new player added");
+       }catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
 
     //======================= Getters ==========================================

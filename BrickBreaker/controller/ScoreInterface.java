@@ -9,6 +9,6 @@ package BrickBreaker.controller;
  *
  * @author Rouxk
  */
-public class GameMenuController {
-    
+public interface ScoreInterface {
+     public void writeScore(int _score);
 }

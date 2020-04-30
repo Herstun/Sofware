@@ -53,6 +53,7 @@ public class Ball extends StandardGameObject {
         if (this._y >= GameController.window.height()) {
             JOptionPane.showMessageDialog(null, scoreMessage + GameController.score);
             GameController.twitter.postTweet(GameController.score);
+            GameController.adapter.writeScore(GameController.score);
             System.exit(0);
         }
         //This is the movement of the ball.
