@@ -16,10 +16,13 @@ public class Score implements ScoreInterface{
     @Override
     public void writeScore(int _score) {
         try {
+            //This is where the text file is called on.
             FileWriter fw = new FileWriter(sourceOfScoreTextFile, true);
             try (BufferedWriter bw = new BufferedWriter(fw)) {
+                //Prints the message that writes into the text file/\.
                 if(_score > 0){
                     bw.write(messagePerScorePrint + " " + _score);
+                    //Print a new line for next entry.
                     bw.newLine();
                 }
             }
