@@ -7,3 +7,4 @@ The score was: 5300
 The score was: 600
 The score was: 600
 The score was: 800
+The score was: 200
