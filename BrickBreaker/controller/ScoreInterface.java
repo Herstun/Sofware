@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BrickBreaker.controller;
 
 /**
- *
- * @author Rouxk
+ * The purpose of this interface is to have the score be inherited into the score class.
+ * @author Tyler 4/20/2020
  */
 public interface ScoreInterface {
      public void writeScore(int _score);
