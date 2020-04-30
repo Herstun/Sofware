@@ -23,7 +23,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class BallGameMenu extends Application {
+public class BrickBreakerMenu extends Application {
 
     private static final Font FONT = Font.font("arial", FontWeight.THIN, 18);
     private VBox menuBox;
@@ -55,6 +55,7 @@ public class BallGameMenu extends Application {
     private static Color notHighlightedOption = Color.GREY;
     private boolean movedAwayFrom = false;
     private boolean movedOnto = true;
+    private final int space = 10;
 
     /**
      * new rectangle is shown as a new background to show off white text of both
@@ -71,7 +72,7 @@ public class BallGameMenu extends Application {
         hbox.setTranslateY(positionOfHboxY);
         MenuItem itemExit = new MenuItem(exit);
         itemExit.setOnActivate(() -> System.exit(0));
-        menuBox = new VBox(10, new MenuItem(gameStart), (itemExit));
+        menuBox = new VBox(space, new MenuItem(gameStart), (itemExit));
         menuBox.setAlignment(menuBoxAlignment);
         menuBox.setTranslateX(menuBoxPositionX);
         menuBox.setTranslateY(menuBoxPositionY);
@@ -81,8 +82,7 @@ public class BallGameMenu extends Application {
     }
 
     /**
-     * Set title of the game in the center using X and y coordenantes
-     * coordinances.
+     * Set title of the game in the center using X and y coordinates.
      *
      * @return
      */
@@ -311,11 +311,11 @@ public class BallGameMenu extends Application {
     }
 
     public static void setGameSizeWidth(int gameSizeWidth) {
-        BallGameMenu.gameSizeWidth = gameSizeWidth;
+        BrickBreakerMenu.gameSizeWidth = gameSizeWidth;
     }
 
     public static void setGameSizeHeight(int gameSizeHeight) {
-        BallGameMenu.gameSizeHeight = gameSizeHeight;
+        BrickBreakerMenu.gameSizeHeight = gameSizeHeight;
     }
 
     public void setTitle(String title) {
@@ -323,15 +323,15 @@ public class BallGameMenu extends Application {
     }
 
     public static void setIsActiveOrNot(boolean isActiveOrNot) {
-        BallGameMenu.isActiveOrNot = isActiveOrNot;
+        BrickBreakerMenu.isActiveOrNot = isActiveOrNot;
     }
 
     public static void setHighlightedOption(Color highlightedOption) {
-        BallGameMenu.highlightedOption = highlightedOption;
+        BrickBreakerMenu.highlightedOption = highlightedOption;
     }
 
     public static void setNotHighlightedOption(Color notHighlightedOption) {
-        BallGameMenu.notHighlightedOption = notHighlightedOption;
+        BrickBreakerMenu.notHighlightedOption = notHighlightedOption;
     }
 
     public void setMovedAwayFrom(boolean movedAwayFrom) {

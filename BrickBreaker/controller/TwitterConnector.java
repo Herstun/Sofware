@@ -2,7 +2,7 @@ package BrickBreaker.controller;
 
 /**
  * This class connects the game score to twitter and posts a tweet because this
- * calls the twitter api.
+ * calls the twitter Api.
  *
  * @author Tyler Roux, Last updated 4/05/2020
  */

@@ -6,7 +6,7 @@ package BrickBreaker.controller;
  *
  * @author Tyler Roux, Last updated 4/25/2020
  */
-import BrickBreaker.BallGameMenu;
+import BrickBreaker.BrickBreakerMenu;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
@@ -44,7 +44,7 @@ public class GameController extends Canvas implements Runnable {
     protected Boost boost;
     protected static final int boostPlacementWidth = 500;
     protected static final int boostPlacementHeight = 500;
-    protected BallGameMenu menu;
+    protected BrickBreakerMenu menu;
     protected final String scoreMessage2 = "Score: ";
     protected final String levelLocation = "src/Resources/Levels/Level1.txt";
     protected final String title = "Bricks Be Gone";
@@ -244,7 +244,7 @@ public class GameController extends Canvas implements Runnable {
         return boostPlacementHeight;
     }
 
-    public BallGameMenu getMenu() {
+    public BrickBreakerMenu getMenu() {
         return menu;
     }
 
@@ -305,7 +305,7 @@ public class GameController extends Canvas implements Runnable {
         this.boost = boost;
     }
 
-    public void setMenu(BallGameMenu menu) {
+    public void setMenu(BrickBreakerMenu menu) {
         this.menu = menu;
     }
 
