@@ -1,17 +1,20 @@
 package BrickBreaker.model;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
 /**
  * This class writes the scores into a text file.
  *
  * @author Tyler Roux, Last updated 4/26/2020
  */
-public class ScoreDataStoreWriter implements ScoreInterface {
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+
+public class ScoreDataStoreWriter implements ScoreInterface {
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    LocalDate localDate = LocalDate.now();
     @Override
     public void writeScore(int _score) {
         try {
@@ -20,7 +23,7 @@ public class ScoreDataStoreWriter implements ScoreInterface {
             try (BufferedWriter bw = new BufferedWriter(fw)) {
                 if (_score > 0) {
                     //This writes the score was: 'score' into the new text file.
-                    bw.write("The score was:" + " " + _score + "  " + date());
+                    bw.write("The score was:" + " " + _score + "  " + dtf.format(localDate));
                     bw.newLine();
                 }
             }
@@ -29,5 +32,4 @@ public class ScoreDataStoreWriter implements ScoreInterface {
             e.printStackTrace();
         }
     }
-
 }
