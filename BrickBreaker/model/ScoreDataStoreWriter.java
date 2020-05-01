@@ -1,5 +1,6 @@
-package BrickBreaker.controller;
+package BrickBreaker.model;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.io.IOException;
  *
  * @author Tyler Roux, Last updated 4/26/2020
  */
-public class ScoreDataStore implements ScoreInterface {
+public class ScoreDataStoreWriter implements ScoreInterface {
 
     @Override
     public void writeScore(int _score) {
@@ -19,7 +20,7 @@ public class ScoreDataStore implements ScoreInterface {
             try (BufferedWriter bw = new BufferedWriter(fw)) {
                 if (_score > 0) {
                     //This writes the score was: 'score' into the new text file.
-                    bw.write("The score was:" + " " + _score);
+                    bw.write("The score was:" + " " + _score + "  " + date());
                     bw.newLine();
                 }
             }

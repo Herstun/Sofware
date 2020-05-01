@@ -1,4 +1,4 @@
-package BrickBreaker.controller;
+package BrickBreaker.model;
 
 /**
  * This is the main class of the game and controls the starting and stopping of
@@ -6,7 +6,7 @@ package BrickBreaker.controller;
  *
  * @author Tyler Roux, Last updated 4/25/2020
  */
-import BrickBreaker.model.BrickBreakerMenu;
+import BrickBreaker.Controller.BrickBreakerMenu;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
@@ -14,12 +14,12 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 import java.util.concurrent.TimeUnit;
 import BrickBreaker.view.*;
-import BrickBreaker.model.Paddle;
+import BrickBreaker.Controller.Paddle;
 
 /**
  * This is the enumeration of the properties of game and makes it runnable.
  */
-public class GameController extends Canvas implements Runnable {
+public class GameModel extends Canvas implements Runnable {
 
     protected Thread thread;
     protected boolean running = false;
@@ -50,14 +50,14 @@ public class GameController extends Canvas implements Runnable {
     protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter = new TwitterAdapter();
     public static ScoreTranslator adapter = new ScoreTranslator();
-    public final Color background = Color.black;
-    public final Color backgroundtop = Color.white;
+    private final Color background = Color.black;
+    private final Color backgroundtop = Color.white;
 
     /**
      * This method displays the games height and width.
      */
-    public GameController(int _width, int _height) {
-        GameController.window = new Window(_width, _height, title, this);
+    public GameModel(int _width, int _height) {
+        GameModel.window = new Window(_width, _height, title, this);
         //This pulls the information from the StandardHandler.
         this.sh = new StandardHandler();
         //This gathers the information from the paddle.
@@ -73,7 +73,7 @@ public class GameController extends Canvas implements Runnable {
         this.addKeyListener(paddle);
         //This starts the game.
         this.start();
-        this.boost = new Boost(GameController.boostPlacementWidth, GameController.boostPlacementHeight, this.sh);
+        this.boost = new Boost(GameModel.boostPlacementWidth, GameModel.boostPlacementHeight, this.sh);
     }
 
     /**
@@ -144,15 +144,20 @@ public class GameController extends Canvas implements Runnable {
 
         Graphics2D g2 = (Graphics2D) bs.getDrawGraphics();
         g2.setColor(background);
-        g2.fillRect(backgroundWidth, backgroundHeight, GameController.window.width(), GameController.window.height());
+        g2.fillRect(backgroundWidth, backgroundHeight, GameModel.window.width(), GameModel.window.height());
         this.sh.render(g2);
         g2.setColor(backgroundtop);
         g2.setFont(this.font);
-        g2.drawString(scoreMessage2 + GameController.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
+        g2.drawString(scoreMessage2 + GameModel.score, scoreSizeWidthPlacement, scoreSizeHeightPlacement);
         g2.dispose();
         bs.show();
     }
     //=================================== Getters =============================================
+
+
+    public static ScoreTranslator getAdapter() {
+        return adapter;
+    }
 
     public int getScore() {
         return score;
@@ -275,6 +280,11 @@ public class GameController extends Canvas implements Runnable {
     }
 
     //================================== Setters ==============================================
+
+    public static void setAdapter(ScoreTranslator adapter) {
+    GameModel.adapter = adapter;
+    }
+
     public void setThread(Thread thread) {
         this.thread = thread;
     }
@@ -284,7 +294,7 @@ public class GameController extends Canvas implements Runnable {
     }
 
     public static void setWindow(Window window) {
-        GameController.window = window;
+        GameModel.window = window;
     }
 
     public void setSh(StandardHandler sh) {
@@ -296,7 +306,7 @@ public class GameController extends Canvas implements Runnable {
     }
 
     public static void setScore(int score) {
-        GameController.score = score;
+        GameModel.score = score;
     }
 
     public void setFont(Font font) {
@@ -312,6 +322,6 @@ public class GameController extends Canvas implements Runnable {
     }
 
     public static void setTwitter(TwitterAdapter twitter) {
-        GameController.twitter = twitter;
+        GameModel.twitter = twitter;
     }
 }
