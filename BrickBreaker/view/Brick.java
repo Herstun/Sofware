@@ -67,8 +67,7 @@ public class Brick extends StandardGameObject {
     }
 
     //This public method is called on everytime a block is destroyed and counts. If ten blocks have been destroyed than their is a combo points.
-    public static int ifComboBrickBroken(){
-        Brick.blockBroken++;
+    public static int ifComboBrickBroken(int blockBroken){
         if(blockBroken == numberForCombo){
             comboPoints += comboPointsAchieved;
         }
