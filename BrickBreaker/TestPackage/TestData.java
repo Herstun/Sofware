@@ -8,7 +8,7 @@ public final class TestData {
     private int blocks;
     private  int score;
     private int expected = 0;
-    protected int bonusPointsMulti = 2;
+    protected int bonusPointsMulti = 0;
     private int bonusPoints=250;
     private final String pass = "PASS";
     private final String fail = "FAIL";
@@ -26,8 +26,9 @@ public final class TestData {
 
     public void calcTestRun() {
         this.expected += this.blocks*100;
-        this.bonusPointsMulti = this.blocks/10;
+        this.bonusPointsMulti = (this.blocks/10);
         this.expected += (this.bonusPoints*this.bonusPointsMulti);
+                System.out.println(this.expected);
     }
 
     private String getResult() {
