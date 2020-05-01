@@ -56,7 +56,8 @@ public class StandardHandler {
                 for (int j = 0; j < entities.size(); j++) {
                     if (entities.get(j).id == StandardID.Brick) {
                         if (entities.get(i).getBounds().intersects(entities.get(j).getBounds())) {
-                            GameController.score += Brick.ifComboBrickBroken();
+                            Brick.blockBroken++;
+                            GameController.score += Brick.ifComboBrickBroken(Brick.blockBroken);
                             GameController.score += Brick.pointsPerBlock;
                             entities.remove(j);
                             j--;
