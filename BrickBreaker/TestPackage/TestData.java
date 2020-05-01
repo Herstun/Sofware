@@ -1,42 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TestPackage;
 
 /**
- *
- * @author meije
+ * The calculation part where we see if they match or not and prints the statement.
+ * @author Jerid 4/30/2020
  */
 public final class TestData {
-    private int attack;
+    private int blocks;
     private  int score;
     private int expected = 0;
     protected int bonusPointsMulti = 2;
     private int bonusPoints=250;
-    public TestData(int _attack, int _score) {
-        this.attack = _attack;
+    private final String pass = "PASS";
+    private final String fail = "FAIL";
+
+    public TestData(int _blocks, int _score) {
+        this.blocks = _blocks;
         this.score = _score;
         this.calcTestRun();
     }
 
-     public static void runTest(int _attack, int _score) {
-        TestData aTest = new TestData(_attack, _score);
+     public static void runTest(int _blocks, int _score) {
+        TestData aTest = new TestData(_blocks, _score);
         System.out.println(aTest.toString());
     }
 
     public void calcTestRun() {
-        this.expected += this.attack*100;
-        this.bonusPointsMulti = this.attack/10;
+        this.expected += this.blocks*100;
+        this.bonusPointsMulti = this.blocks/10;
         this.expected += (this.bonusPoints*this.bonusPointsMulti);
     }
 
     private String getResult() {
         if (this.expected == this.score) {
-            return "PASS";
+            return pass;
         }
-        return "FAIL";
+        return fail;
     }
 
     /**
@@ -45,12 +43,12 @@ public final class TestData {
      */
     @Override
     public String toString() {
-        return this.getResult() + " the value of " + this.attack +" result in a score of " +this.score + " Expected: " + this.expected;
+        return this.getResult() + " the value of " + this.blocks +" result in a score of " +this.score + " Expected: " + this.expected;
     }
     //=====================================================GETTERS==================================================
 
-    public int getAttack() {
-        return attack;
+    public int getBlocks() {
+        return blocks;
     }
 
     public int getScore() {
@@ -68,10 +66,18 @@ public final class TestData {
     public int getBonusPoints() {
         return bonusPoints;
     }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public String getFail() {
+        return fail;
+    }
     //=======================================================SETTERS===================================================
 
-    public void setAttack(int attack) {
-        this.attack = attack;
+    public void setAttack(int blocks) {
+        this.blocks = blocks;
     }
 
     public void setScore(int score) {
@@ -80,6 +86,10 @@ public final class TestData {
 
     public void setExpected(int expected) {
         this.expected = expected;
+    }
+
+    public void setBlocks(int blocks) {
+        this.blocks = blocks;
     }
 
     public void setBonusPointsMulti(int bonusPointsMulti) {
