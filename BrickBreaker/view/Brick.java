@@ -5,7 +5,6 @@ package BrickBreaker.view;
  *
  * @author Tyler, Last updated 4/23/2020
  */
-//import BrickBreaker.model.GameModel;
 import BrickBreaker.model.StandardGameObject;
 import BrickBreaker.model.StandardID;
 import java.awt.Color;
@@ -68,13 +67,19 @@ public class Brick extends StandardGameObject {
     public void tick() {
     }
 
-    //This public method is called on everytime a block is destroyed and counts. If ten blocks have been destroyed than their is a combo points.
-    public static int ifComboBrickBroken(int blockBroken){
-        if(Brick.blockBroken%numberForCombo == 0){
+    /**
+     * This public method is called on everytime a block is destroyed and
+     * counts. If ten blocks have been destroyed than their is a combo points.
+     *
+     * @param blockBroken
+     * @return
+     */
+    public static int ifComboBrickBroken(int blockBroken) {
+        if (Brick.blockBroken % numberForCombo == 0) {
             return comboPointsAchieved;
-        }
-        else
+        } else {
             return noComboPointsAchieved;
+        }
     }
 
     /**
@@ -92,6 +97,7 @@ public class Brick extends StandardGameObject {
     public static int getComboPointsAchieved() {
         return comboPointsAchieved;
     }
+
     public int getBrickWidth() {
         return brickWidth;
     }

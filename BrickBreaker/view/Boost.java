@@ -79,6 +79,34 @@ public class Boost extends StandardGameObject {
         return perIncreaseWidth;
     }
 
+    public int getBoostHeight() {
+        return boostHeight;
+    }
+
+    public int getBoostWidth() {
+        return boostWidth;
+    }
+
+    public int getBoostVelocityY() {
+        return boostVelocityY;
+    }
+
+    public int getCreateDropX() {
+        return createDropX;
+    }
+
+    public int getCreateDropY() {
+        return createDropY;
+    }
+
+    public static int getBoostPoints() {
+        return boostPoints;
+    }
+
+    public Color getBoostColor() {
+        return boostColor;
+    }
+
     //============================= Setters ====================================
     public static void setRateDrop(double rateDrop) {
         Boost.rateDrop = rateDrop;

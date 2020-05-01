@@ -6,7 +6,7 @@ package BrickBreaker.model;
  * @author Dymond, Last updated: 2/20/2020
  */
 public enum StandardID {
-    Player, Ball, Brick, Boost;
+    Player, Ball, Brick, Boost, blockBroken;
 
     //=========================== Getters ======================================
     public static StandardID getPlayer() {

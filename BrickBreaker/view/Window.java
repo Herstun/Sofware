@@ -40,7 +40,6 @@ public class Window extends Canvas {
     }
 
     //============================ Setters =====================================
-
     public void setAccessibleContext(AccessibleContext accessibleContext) {
         this.accessibleContext = accessibleContext;
     }

@@ -154,7 +154,6 @@ public class GameModel extends Canvas implements Runnable {
     }
     //=================================== Getters =============================================
 
-
     public static ScoreTranslator getAdapter() {
         return adapter;
     }
@@ -280,9 +279,8 @@ public class GameModel extends Canvas implements Runnable {
     }
 
     //================================== Setters ==============================================
-
     public static void setAdapter(ScoreTranslator adapter) {
-    GameModel.adapter = adapter;
+        GameModel.adapter = adapter;
     }
 
     public void setThread(Thread thread) {

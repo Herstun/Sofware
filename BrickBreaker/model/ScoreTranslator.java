@@ -2,7 +2,7 @@ package BrickBreaker.model;
 
 /**
  * This is the translator class that gather the score and translates it to the
- * ScoreDataStore class.
+ * ScoreDataStoreWriter class.
  *
  * @author Tyler Roux, Last updated 4/25/2020
  */

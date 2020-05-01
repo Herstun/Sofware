@@ -5,7 +5,6 @@ package BrickBreaker.Controller;
  * down (both Start Game and Exit) // current item shows highlighted selection
  * of Vbox size of window
  */
-import BrickBreaker.*;
 import BrickBreaker.model.GameModel;
 import javafx.application.Application;
 import javafx.geometry.Pos;

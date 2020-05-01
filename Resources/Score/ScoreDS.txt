@@ -39,3 +39,4 @@ The score was: 1250
 The score was: 5400
 The score was: 3000
 The score was: 200  2020-05-01-04:00
+The score was: 300  2020-05-01-04:00
