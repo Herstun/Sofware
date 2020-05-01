@@ -49,7 +49,7 @@ public class GameController extends Canvas implements Runnable {
     protected final String levelLocation = "src/Resources/Levels/Level1.txt";
     protected final String title = "Bricks Be Gone";
     public static TwitterAdapter twitter = new TwitterAdapter();
-    public static ScoreAdapter adapter = new ScoreAdapter();
+    public static ScoreTranslator adapter = new ScoreTranslator();
     public final Color background = Color.black;
     public final Color backgroundtop = Color.white;
 

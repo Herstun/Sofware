@@ -15,7 +15,7 @@ public class ScoreDataStore implements ScoreInterface {
     public void writeScore(int _score) {
         try {
             //This creates a file called score.txt.
-            FileWriter fw = new FileWriter("src/resources/Score/score.txt", true);
+            FileWriter fw = new FileWriter("src/resources/Score/ScoreDS.txt", true);
             try (BufferedWriter bw = new BufferedWriter(fw)) {
                 if (_score > 0) {
                     //This writes the score was: 'score' into the new text file.

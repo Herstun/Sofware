@@ -6,7 +6,7 @@ package BrickBreaker.controller;
  *
  * @author Tyler Roux, Last updated 4/25/2020
  */
-public class ScoreAdapter implements ScoreInterface {
+public class ScoreTranslator implements ScoreInterface {
 
     protected static final ScoreInterface scores = new ScoreDataStore();
 
