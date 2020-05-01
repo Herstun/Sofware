@@ -7,6 +7,7 @@ package BrickBreaker.view;
  */
 import BrickBreaker.controller.GameController;
 import java.awt.Canvas;
+import javax.accessibility.AccessibleContext;
 import javax.swing.JFrame;
 
 public class Window extends Canvas {
@@ -39,4 +40,8 @@ public class Window extends Canvas {
     }
 
     //============================ Setters =====================================
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
 }

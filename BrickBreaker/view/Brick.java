@@ -18,6 +18,11 @@ public class Brick extends StandardGameObject {
     protected final Color secondBrick = Color.blue;
     protected final Color thirdBrick = Color.green;
     protected final Color fourthBrick = Color.orange;
+    protected static int pointsPerBlock = 100;
+    protected static int blockBroken = 0;
+    protected static int comboPoints = 0;
+    protected static int numberForCombo = 10;
+    protected static int comboPointsAchieved = 250;
 
     /**
      * This method creates the brick and makes the color of the brick with the
@@ -61,6 +66,14 @@ public class Brick extends StandardGameObject {
     public void tick() {
     }
 
+    //This public method is called on everytime a block is destroyed and counts. If ten blocks have been destroyed than their is a combo points.
+    public static int ifComboBrickBroken(int blockBroken){
+        if(blockBroken == numberForCombo){
+            comboPoints += comboPointsAchieved;
+        }
+        return comboPoints;
+    }
+
     /**
      * This method draws the brick onto the canvas.
      *
@@ -73,8 +86,51 @@ public class Brick extends StandardGameObject {
     }
 
     //============================ Getters =====================================
+    public static int getComboPointsAchieved() {
+        return comboPointsAchieved;
+    }
+    public int getBrickWidth() {
+        return brickWidth;
+    }
+
+    public int getBrickHeight() {
+        return brickHeight;
+    }
+
     public Color getColor() {
         return color;
+    }
+
+    public Color getFirstBrick() {
+        return firstBrick;
+    }
+
+    public Color getSecondBrick() {
+        return secondBrick;
+    }
+
+    public Color getThirdBrick() {
+        return thirdBrick;
+    }
+
+    public Color getFourthBrick() {
+        return fourthBrick;
+    }
+
+    public static int getPointsPerBlock() {
+        return pointsPerBlock;
+    }
+
+    public static int getBlockBroken() {
+        return blockBroken;
+    }
+
+    public static int getComboPoints() {
+        return comboPoints;
+    }
+
+    public static int getNumberForCombo() {
+        return numberForCombo;
     }
 
     //============================ Setters =====================================
@@ -82,4 +138,23 @@ public class Brick extends StandardGameObject {
         this.color = color;
     }
 
+    public static void setPointsPerBlock(int pointsPerBlock) {
+        Brick.pointsPerBlock = pointsPerBlock;
+    }
+
+    public static void setBlockBroken(int blockBroken) {
+        Brick.blockBroken = blockBroken;
+    }
+
+    public static void setComboPoints(int comboPoints) {
+        Brick.comboPoints = comboPoints;
+    }
+
+    public static void setNumberForCombo(int numberForCombo) {
+        Brick.numberForCombo = numberForCombo;
+    }
+
+    public static void setComboPointsAchieved(int comboPointsAchieved) {
+        Brick.comboPointsAchieved = comboPointsAchieved;
+    }
 }
