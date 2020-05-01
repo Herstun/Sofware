@@ -8,7 +8,9 @@ package BrickBreaker.view;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import javax.swing.JOptionPane;
-import BrickBreaker.controller.*;
+import BrickBreaker.model.*;
+import BrickBreaker.model.GameModel;
+import BrickBreaker.model.StandardID;
 
 public class Ball extends StandardGameObject {
 
@@ -42,7 +44,7 @@ public class Ball extends StandardGameObject {
     @Override
     public void tick() {
         //This acts as a bounce back when it reaches the window bounds. Collision of the ball and the left and right walls.
-        if (this._x < 0 || this._x >= GameController.window.width() - this.width) {
+        if (this._x < 0 || this._x >= GameModel.window.width() - this.width) {
             this.velX = -this.velX;
         }
         //If it hits the top of the window it will go back into the canvas and continue. Collision with the top wall.
@@ -50,10 +52,10 @@ public class Ball extends StandardGameObject {
             this.velY = -this.velY;
         }
         //If it goes past the paddle then it display a losing message.
-        if (this._y >= GameController.window.height()) {
-            JOptionPane.showMessageDialog(null, scoreMessage + GameController.score);
-            GameController.twitter.postTweet(GameController.score);
-            GameController.adapter.writeScore(GameController.score);
+        if (this._y >= GameModel.window.height()) {
+            JOptionPane.showMessageDialog(null, scoreMessage + GameModel.score);
+            GameModel.twitter.postTweet(GameModel.score);
+            GameModel.adapter.writeScore(GameModel.score);
             System.exit(0);
         }
         //This is the movement of the ball.

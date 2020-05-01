@@ -5,16 +5,15 @@ package BrickBreaker.view;
  *
  * @author Marquis, Last updated: 3/20/2020
  */
-import BrickBreaker.controller.GameController;
+import BrickBreaker.model.GameModel;
 import java.awt.Canvas;
-import javax.accessibility.AccessibleContext;
 import javax.swing.JFrame;
 
 public class Window extends Canvas {
 
     protected final JFrame frame;
 
-    public Window(int _width, int _height, String _title, GameController _game) {
+    public Window(int _width, int _height, String _title, GameModel _game) {
         this.frame = new JFrame(_title);
         this.frame.setSize(_width, _height);
         this.frame.setDefaultCloseOperation(3);
@@ -40,8 +39,4 @@ public class Window extends Canvas {
     }
 
     //============================ Setters =====================================
-
-    public void setAccessibleContext(AccessibleContext accessibleContext) {
-        this.accessibleContext = accessibleContext;
-    }
 }
