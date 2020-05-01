@@ -6,7 +6,9 @@ package BrickBreaker.view;
  *
  * @author Jerid, Last updated 4/19/20
  */
-import BrickBreaker.model.*;
+import BrickBreaker.model.GameController;
+import BrickBreaker.model.StandardGameObject;
+import BrickBreaker.model.StandardID;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -65,7 +67,7 @@ public class Boost extends StandardGameObject {
      * This is the extra boost points being added to the score.
      */
     public static void boostAmount() {
-        GameModel.score += boostPoints;
+        GameController.score += boostPoints;
     }
 
     //============================ Getters =====================================

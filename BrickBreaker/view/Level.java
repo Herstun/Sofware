@@ -6,19 +6,18 @@ package BrickBreaker.view;
  *
  * @author Jerid, Last updated: 4/22/2020
  */
+import BrickBreaker.model.GameController;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-import BrickBreaker.Model.*;
-import BrickBreaker.model.GameModel;
 
 public class Level {
 
     protected Scanner file;
     protected StandardHandler sh;
-    protected GameModel game;
+    protected GameController game;
     protected String level;
     private final int blockPlacementX = 0;
     private final int blockPlacementY = 40;
@@ -106,7 +105,7 @@ public class Level {
         return sh;
     }
 
-    public GameModel getGame() {
+    public GameController getGame() {
         return game;
     }
 
@@ -151,7 +150,7 @@ public class Level {
         this.sh = sh;
     }
 
-    public void setGame(GameModel game) {
+    public void setGame(GameController game) {
         this.game = game;
     }
 

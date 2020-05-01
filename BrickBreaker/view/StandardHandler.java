@@ -5,7 +5,7 @@ package BrickBreaker.view;
  *
  * @author Jerid, Tyler, Marquis; Last updated: 4/20/2020
  */
-import BrickBreaker.model.GameModel;
+import BrickBreaker.model.GameController;
 import BrickBreaker.model.StandardGameObject;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -33,8 +33,8 @@ public class StandardHandler {
      */
     public void tick() {
         if (this.countBricksAndDetermineWin()) {
-            JOptionPane.showMessageDialog(null, gameWonMessage + GameModel.score);
-            GameModel.twitter.postTweet(GameModel.score);
+            JOptionPane.showMessageDialog(null, gameWonMessage + GameController.score);
+            GameController.twitter.postTweet(GameController.score);
             System.exit(0);
         }
 
@@ -56,7 +56,9 @@ public class StandardHandler {
                 for (int j = 0; j < entities.size(); j++) {
                     if (entities.get(j).id == StandardID.Brick) {
                         if (entities.get(i).getBounds().intersects(entities.get(j).getBounds())) {
-                            GameModel.score += 100;
+                            Brick.blockBroken++;
+                            GameController.score += Brick.ifComboBrickBroken(Brick.blockBroken);
+                            GameController.score += Brick.pointsPerBlock;
                             entities.remove(j);
                             j--;
                             entities.get(i).velY = -entities.get(i).velY;
