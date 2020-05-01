@@ -24,7 +24,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class BrickBreakerMenu extends Application {
-
+// Vbox is the box that the words ball breaker 
     private static final Font FONT = Font.font("arial", FontWeight.THIN, 18);
     private VBox menuBox;
     private int currentItem = 0;
@@ -58,9 +58,9 @@ public class BrickBreakerMenu extends Application {
     private final int space = 10;
 
     /**
-     * new rectangle is shown as a new background to show off white text of both
-     * exit and Start game //Placements of location for "tittle box" //creates
-     * Exit for the menu page // placement of options
+     * new rectangle is shown as a new background to show off white text of both.
+     * exit and Start game //Placements of location for "tittle box" creates.
+     * Exit for the menu page // placement of options.
      */
     private Parent createContent() {
         Pane root = new Pane();
@@ -112,7 +112,7 @@ public class BrickBreakerMenu extends Application {
             getChildren().addAll(frame, content);
         }
     }
-
+// Sets the fonts positioning of the words in the main Menu .
     private static class MenuItem extends HBox {
 
         private final Text text;
@@ -124,6 +124,7 @@ public class BrickBreakerMenu extends Application {
             text.setFont(FONT);
             getChildren().addAll(text);
             setActive(isActiveOrNot);
+            //this connects menu to the main game.
             setOnActivate(() -> new GameModel(gameSizeWidth, gameSizeHeight));
         }
 
